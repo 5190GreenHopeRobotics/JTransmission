@@ -1,0 +1,20 @@
+package net.viperfish.requestServer;
+
+import java.util.LinkedList;
+
+public class RequestServer {
+	private LinkedList<Request> ticket;
+	
+	private void handle() {
+		while(!Thread.interrupted())
+		{
+		synchronized(ConnectionHandler.getLock()) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				return;
+			}
+		}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+package net.viperfish.propertyManager.service;
+
+import net.viperfish.propertyManager.insurance.Insurance;
+import net.viperfish.propertyManager.insurance.InsuranceDAO;
+import net.viperfish.propertyManager.insurance.InsuranceIndexer;
+import net.viperfish.propertyManager.property.Property;
+import net.viperfish.propertyManager.property.PropertyDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class InsuranceService {
+
+	protected InsuranceIndexer indexer;
+	@Autowired
+	protected InsuranceDAO insuranceDao;
+	@Autowired
+	protected PropertyDAO propertyDao;
+
+	protected void fillInName(Insurance i) {
+		Property p = propertyDao.get(i.getPropertyID());
+
+	}
+
+	public InsuranceService() {
+		indexer = new InsuranceIndexer();
+	}
+
+	public Insurance put(Insurance toAdd) {
+
+	}
+
+	public Insurance update(Long id, Insurance update) {
+
+	}
+
+	public Insurance delete(Long id) {
+
+	}
+
+	public Insurance get(Long id) {
+
+	}
+
+	public Iterable<Insurance> getAll() {
+
+	}
+
+	public Iterable<Insurance> search(String keywords) {
+
+	}
+}

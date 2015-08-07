@@ -1,0 +1,126 @@
+package net.viperfish.requestServer;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ConnectionHandler {
+	static private Object lock;
+	static private Object lock2;
+	static private ServerSocket meta;
+	static private ExecutorService exec;
+	static private Thread worker;
+	static private int current;
+	static private HashMap<Integer,ConnectionThread> s;
+	static private LinkedList<Request> queue;
+	static private LinkedList<Response> responseQueue;
+	static {
+		lock = new Object();
+		lock2 = new Object();
+		try {
+			meta = new ServerSocket(8086);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(0);
+		}
+		s = new HashMap<Integer, ConnectionThread>();
+		queue = new LinkedList<Request>();
+		responseQueue = new LinkedList<Response>();
+		exec = Executors.newCachedThreadPool();
+	}
+	
+	public static void start() {
+		exec.execute(new Runnable() {
+
+			@Override
+			public void run() {
+				while(!Thread.interrupted()) {
+					synchronized(this){
+						
+						for(Response r : responseQueue) {
+							if(r!=null) {
+								try {
+									s.get(new Integer(r.getTarget())).send(r);
+								} catch (IOException e) {
+									e.printStackTrace();
+									continue;
+								}
+							}
+						}
+					}
+				}
+
+			}
+		});
+		exec.execute(new Runnable() {
+
+			@Override
+			public void run() {
+				Socket c;
+				ConnectionThread temp;
+				while(true) {
+					try {
+						c = meta.accept();
+					} catch (IOException e) {
+						continue;
+					}
+					try {
+						System.out.println("New TCP Connection");
+						temp = new ConnectionThread(c,current);
+						s.put(new Integer(current), temp);
+						exec.execute(temp);
+						current = current +1;
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						continue;
+					}
+				}
+			}
+			
+		});
+	}
+	
+	public static Object getLock() {
+		return lock;
+	}
+	
+	public static synchronized void addRequest(Request q) {
+		queue.push(q);
+		System.out.println("pushed");
+		synchronized(lock) {
+			lock.notify();
+		}
+	}
+	
+	public static synchronized Request getRequest() {
+		if(queue.isEmpty()) {
+			return null;
+		}
+		return queue.pop();
+	}
+	
+	public static synchronized void sendResponse(Response p) {
+		responseQueue.push(p);
+		notifyAll();
+	}
+	
+	
+	public static void dispose() {
+		try {
+			meta.close();
+		} catch (IOException e) {
+			
+		}
+		exec.shutdownNow();
+		for(Map.Entry<Integer, ConnectionThread> i : s.entrySet()) {
+			i.getValue().dispose();
+		}
+	}
+}

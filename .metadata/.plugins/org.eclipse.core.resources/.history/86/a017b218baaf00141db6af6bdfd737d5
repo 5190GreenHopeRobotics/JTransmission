@@ -1,0 +1,32 @@
+package net.viperfish.requestServer;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+
+
+public class ConnectionThread implements Runnable {
+
+	private Socket mSocket;
+	private DataInputStream src;
+	private DataOutputStream target;
+	public ConnectionThread(Socket sock) throws IOException {
+		mSocket = sock;
+		try {
+			src = new DataInputStream(sock.getInputStream());
+			target = new DataOutputStream(sock.getOutputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	@Override
+	public void run() {
+		
+
+	}
+
+}

@@ -1,0 +1,51 @@
+package net.viperfish.requestServer;
+
+import java.util.LinkedList;
+
+public class RequestServer {
+	private LinkedList<String> ticket;
+	private Thread worker;
+	public RequestServer() {
+		worker = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				handle();
+				
+			}
+			
+		});
+	}
+	
+	public void start() {
+		worker.start();
+	}
+	
+	private void handle() {
+		Request current;
+		Response cResponse;
+		while(!Thread.interrupted())
+		{
+			synchronized(ConnectionHandler.getLock()) {
+				current = ConnectionHandler.getRequest();
+				System.out.println(current);
+				if(current!=null){
+					if(current.getType().equals("PUT"))
+					{
+						ticket.add(current.getSrc());
+					}
+					else if(current.getType().equals("GET")) {
+						cResponse = new Response();
+						cResponse.setTarget(current.getSrcConn());
+						cResponse.setMessage(ticket.getFirst());
+						ConnectionHandler.sendResponse(cResponse);
+					}
+				} 
+			}
+		}
+	}
+	
+	public void dispose() {
+		worker.interrupt();
+	}
+}

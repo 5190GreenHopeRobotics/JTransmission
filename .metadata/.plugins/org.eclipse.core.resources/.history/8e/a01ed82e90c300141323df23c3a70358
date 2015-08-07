@@ -1,0 +1,107 @@
+package net.viperfish.DAO;
+
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import net.viperfish.chat.Message;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Repository;
+
+@Repository("messageDao")
+public class MessageDAO implements DataAcesser<Message, Message> {
+
+	protected JdbcTemplate template;
+
+	@Autowired
+	public void createTemplate(DataSource dataSource) {
+		template = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public void add(Message toAdd) {
+		String query = "INSERT INTO messageTable VALUES("
+				+ toAdd.getDate().getTime() + ",\"" + toAdd.getSrc() + "\",\""
+				+ toAdd.getZone() + "\", \"" + toAdd.getContent() + "\")";
+		template.execute(query);
+
+	}
+
+	@Override
+	public void delete(Message o) {
+		String query = "DELETE FROM messageTable WHERE timeStamp = "
+				+ o.getDate().getTime() + " AND src = \"" + o.getSrc() + "\""
+				+ " AND zone = \"" + o.getZone() + "\"" + " AND content = \""
+				+ o.getContent() + "\"";
+		template.execute(query);
+	}
+
+	@Override
+	public Message[] get(Message key) {
+		int paremCount = 0;
+		String query = "SELECT * FROM messageTable WHERE ";
+		if (key.getContent() != null) {
+			if (paremCount > 0) {
+				query += "AND ";
+			}
+			query += "content = \"" + key.getContent() + "\" ";
+			paremCount += 1;
+		}
+		if (key.getDate() != null) {
+			if (paremCount > 0) {
+				query += "AND ";
+			}
+			query += "timeStamp = " + key.getDate().getTime() + " ";
+			paremCount += 1;
+		}
+		if (key.getSrc() != null) {
+			if (paremCount > 0) {
+				query += "AND ";
+			}
+			query += "src = \"" + key.getSrc() + "\" ";
+			paremCount += 1;
+		}
+		if (key.getZone() != null) {
+			if (paremCount > 0) {
+				query += "AND ";
+			}
+			query += "zone = \"" + key.getZone() + "\" ";
+			paremCount += 1;
+		}
+		SqlRowSet queryResult = template.queryForRowSet(query);
+		Message temp;
+		List<Message> l = new LinkedList<Message>();
+		while (queryResult.next()) {
+			temp = new Message();
+			temp.setContent(queryResult.getString("content"));
+			temp.setDate(new Date(queryResult.getLong("timeStamp")));
+			temp.setSrc(queryResult.getString("src"));
+			temp.setZone(queryResult.getString("zone"));
+			l.add(temp);
+		}
+		return l.toArray(new Message[1]);
+	}
+
+	@Override
+	public void update(Message old, Message newObject) { 
+
+	}
+
+	@Override
+	public Message[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

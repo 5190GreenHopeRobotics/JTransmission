@@ -1,0 +1,49 @@
+package net.viperfish.chat;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Zone {
+
+	protected Set<String> members;
+	protected String owner;
+	protected String zoneName;
+
+	public Zone() {
+		members = new HashSet<String>();
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void addUser(String userName) {
+		members.add(userName);
+	}
+
+	public void rmUser(String username) {
+		members.remove(username);
+	}
+
+	public String getZoneName() {
+		return zoneName;
+	}
+
+	public void setZoneName(String zoneName) {
+		this.zoneName = zoneName;
+	}
+
+	public String getUser() {
+		String[] list = members.toArray(new String[1]);
+		String result = new String();
+		for (int i = 0; i < list.length - 1; i++) {
+			result += list[i] + ",";
+		}
+		result += list[list.length - 1];
+		return result;
+	}
+}

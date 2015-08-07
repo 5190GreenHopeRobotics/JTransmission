@@ -1,0 +1,51 @@
+package net.viperfish.propertyManager.service;
+
+import java.util.List;
+
+import net.viperfish.propertyManager.property.Property;
+import net.viperfish.propertyManager.property.PropertyDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("propertyService")
+public class PropertyService {
+
+	@Autowired
+	protected PropertyDAO propertyDao;
+
+	public PropertyService() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Property addProperty(Property p) {
+		Property added = propertyDao.put(p);
+		return added;
+	}
+
+	public Property updateProperty(Property newProperty, Long propertyID) {
+		Property updated = null;
+		if (propertyName.equals(newProperty.getName())) {
+			updated = propertyDao.update(newProperty);
+		}
+		return updated;
+	}
+
+	public Property deleteProperty(Long propertyID) {
+		Property deleted = propertyDao.remove(propertyID);
+		return deleted;
+	}
+
+	public Property getProperty(Long id) {
+		return propertyDao.get(id);
+	}
+
+	public List<Property> searchProperty(String keyword) {
+		return propertyDao.keywordSearch(keyword);
+	}
+
+	public Iterable<Property> getAll() {
+		return propertyDao.getAll();
+	}
+
+}

@@ -1,0 +1,27 @@
+/*
+ * test.cpp
+ *
+ *  Created on: Aug 1, 2015
+ *      Author: sdai
+ */
+#include "transmission.h"
+#include <iostream>
+int main() {
+	packetBuffer p;
+	p.addByte(0);
+	p.addByte(2);
+	p.addByte(1);
+	p.addByte(12);
+	transmissionPacket* tp = nullptr;
+	int size = p.getPackets(tp);
+	if(size == 0) {
+		delete[] tp;
+		std::cout << "fail" << std::endl;
+		return 1;
+	}
+	std::cout << "size:" << size << std::endl;
+	std::cout <<
+	delete[] tp;
+}
+
+

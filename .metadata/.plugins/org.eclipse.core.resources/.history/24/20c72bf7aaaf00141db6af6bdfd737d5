@@ -1,0 +1,27 @@
+package org.usfirst.frc.team5190.sensorFilter;
+
+public class ITG3200 {
+	public ITG3200(int port) {
+		
+	}
+	
+	public byte read(byte addr) {
+		
+	}
+	
+	public void write(byte addr, byte value) {
+		
+	}
+	
+	public double getDegree() {
+		
+	}
+	
+	protected void begin() {
+		
+	}
+	
+	protected void update() {
+		
+	}
+}

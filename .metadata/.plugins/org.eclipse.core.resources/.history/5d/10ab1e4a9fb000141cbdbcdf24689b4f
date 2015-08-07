@@ -1,0 +1,29 @@
+package net.viperfish.ticketClient;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
+
+public class ClientWorker implements Runnable {
+
+	Socket sock;
+	SocketAddress server;
+	public void connect(String ip) throws IOException {
+		sock = new Socket();
+		server = new InetSocketAddress(ip, 8000);
+		try {
+			sock.connect(server, 20000);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	@Override
+	public void run() {
+		
+
+	}
+
+}

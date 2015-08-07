@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sdai/git/SummerCoding/protocol/transmission.cpp
+transmission.h
+/home/sdai/git/SummerCoding/protocol/transmission.h
+
+/home/sdai/git/SummerCoding/protocol/transmission.h
+utils/vector.h
+/home/sdai/git/SummerCoding/protocol/utils/vector.h
+
+/home/sdai/git/SummerCoding/protocol/utils/vector.h
+

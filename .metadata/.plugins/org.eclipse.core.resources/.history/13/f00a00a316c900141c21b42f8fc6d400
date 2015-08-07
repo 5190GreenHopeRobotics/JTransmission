@@ -1,0 +1,22 @@
+package net.viperfish.chat;
+
+public class SimpleResultMessage {
+	protected String message;
+
+	public SimpleResultMessage() {
+		message = new String();
+	}
+
+	public SimpleResultMessage(String message) {
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+}

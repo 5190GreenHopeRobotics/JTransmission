@@ -1,0 +1,10 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/transmission.dir/transmission.cpp.o"
+  "libtransmission.pdb"
+  "libtransmission.so"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang CXX)
+  INCLUDE(CMakeFiles/transmission.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)

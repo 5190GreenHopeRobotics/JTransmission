@@ -1,0 +1,16 @@
+package net.viperfish.ticketSpring;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping("/TicketServerSpring")
+public class HelloWorld {
+	@RequestMapping(method = RequestMethod.GET)
+	public String helloWorld(ModelMap mod) {
+		mod.addAttribute("helloMessage", "Hello World From Spring");
+		return "Hello World";
+	}
+}

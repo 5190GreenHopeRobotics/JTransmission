@@ -1,0 +1,21 @@
+package net.viperfish.requestServer;
+
+import java.util.Scanner;
+
+public class Starter {
+
+	public static void main(String[] args) {
+		RequestServer r = new RequestServer();
+		r.start();
+		String temp;
+		Scanner in = new Scanner(System.in);
+		while(true) {
+			temp = in.nextLine();
+			if(temp.equals("exit")){
+				r.dispose();
+				return;
+			}
+		}
+	}
+
+}

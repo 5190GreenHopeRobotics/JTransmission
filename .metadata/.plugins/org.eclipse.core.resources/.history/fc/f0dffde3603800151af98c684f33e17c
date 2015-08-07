@@ -1,0 +1,24 @@
+/*
+ * test.cpp
+ *
+ *  Created on: Aug 1, 2015
+ *      Author: sdai
+ */
+#include "transmission.h"
+#include <iostream>
+int main() {
+	packetBuffer p;
+	p.addByte(0);
+	p.addByte(2);
+	p.addByte(1);
+	p.addByte(12);
+	frc5190::vector<transmissionPacket> v = p.getPackets();
+	if(v.getSize() == 0){
+		std::cout << "fail" << std::endl;
+		return 1;
+	}
+	std::cout << "size:" << v.getSize() << std::endl;
+	std::cout << "type:" << (short)v[0].getMessageType() << std::endl;
+}
+
+

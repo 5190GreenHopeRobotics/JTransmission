@@ -1,0 +1,63 @@
+package net.viperfish.DAO;
+
+import javax.sql.DataSource;
+
+import net.viperfish.chat.Message;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository("messageDao")
+public class MessageDAO implements DataAcesser<Message> {
+
+	protected JdbcTemplate template;
+
+	@Autowired
+	public void createTemplate(DataSource dataSource) {
+
+	}
+
+	@Override
+	public void add(Message toAdd) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Message o) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Message[] get(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Message[] get(String[] keys) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Message old, Message newObject) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Message[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

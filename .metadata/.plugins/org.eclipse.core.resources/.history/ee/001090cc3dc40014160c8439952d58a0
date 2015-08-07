@@ -1,0 +1,38 @@
+package net.viperfish.chat;
+
+public class Zone {
+
+	protected Set<String> members;
+	
+	public Zone() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void setOwner(String owner) {
+
+	}
+
+	public String getOwner() {
+		return null;
+	}
+
+	public void addUser(String userName) {
+
+	}
+
+	public void rmUser(String username) {
+
+	}
+
+	public String getZoneName() {
+		return null;
+	}
+
+	public void setZoneName(String zoneName) {
+
+	}
+
+	public String getUser() {
+		return null;
+	}
+}

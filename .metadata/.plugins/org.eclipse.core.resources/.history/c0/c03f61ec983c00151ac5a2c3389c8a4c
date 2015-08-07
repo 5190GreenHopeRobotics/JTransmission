@@ -1,0 +1,231 @@
+\hypertarget{classtransmissionPacket}{\section{transmission\-Packet Class Reference}
+\label{classtransmissionPacket}\index{transmission\-Packet@{transmission\-Packet}}
+}
+
+
+The transmission meta packet The meta packet to be send that includes \hyperlink{classtransmissionData}{transmission\-Data}.  
+
+
+
+
+{\ttfamily \#include $<$transmission.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtransmissionPacket_a3d09ff438c9445ecd4ec34da09d7d0ab}{\hyperlink{classtransmissionPacket_a3d09ff438c9445ecd4ec34da09d7d0ab}{transmission\-Packet} ()}\label{classtransmissionPacket_a3d09ff438c9445ecd4ec34da09d7d0ab}
+
+\begin{DoxyCompactList}\small\item\em default constructor, init members \end{DoxyCompactList}\item 
+\hyperlink{classtransmissionPacket_a937e455a3d6e31afa8b95f8eac7a5916}{transmission\-Packet} (const \hyperlink{classtransmissionPacket}{transmission\-Packet} \&src)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hypertarget{classtransmissionPacket_a351e609577ac9baaa5c04bd5bb815ee5}{\hyperlink{classtransmissionPacket_a351e609577ac9baaa5c04bd5bb815ee5}{$\sim$transmission\-Packet} ()}\label{classtransmissionPacket_a351e609577ac9baaa5c04bd5bb815ee5}
+
+\begin{DoxyCompactList}\small\item\em frees the memory \end{DoxyCompactList}\item 
+\hyperlink{classtransmissionPacket}{transmission\-Packet} \& \hyperlink{classtransmissionPacket_aa4a40b8255162e01bd5f8e187a615984}{operator=} (const \hyperlink{classtransmissionPacket}{transmission\-Packet} \&src)
+\begin{DoxyCompactList}\small\item\em assignment operator that clear this object, and copy over data from src \end{DoxyCompactList}\item 
+void \hyperlink{classtransmissionPacket_aaf57e80cee2a9a6632f21bec6e791617}{set\-Message\-Type} (const unsigned char t)
+\begin{DoxyCompactList}\small\item\em setter that set the message type \end{DoxyCompactList}\item 
+unsigned char \hyperlink{classtransmissionPacket_a1b2b7b416601545c898b8ca6fec4fbb2}{get\-Message\-Type} () const 
+\begin{DoxyCompactList}\small\item\em the getter that returns the message type \end{DoxyCompactList}\item 
+void \hyperlink{classtransmissionPacket_addb25c2a8297115224d3b229e558c7a4}{set\-Data} (\hyperlink{classtransmissionData}{transmission\-Data} \&data)
+\begin{DoxyCompactList}\small\item\em the function that includes the transmission datagram into this object. \end{DoxyCompactList}\item 
+void \hyperlink{classtransmissionPacket_aa4dd4a99956e6a3078d19bdca005e4b3}{set\-Message\-Length} (const unsigned char length)
+\begin{DoxyCompactList}\small\item\em the setter that set the data length, use set\-Data if possible \end{DoxyCompactList}\item 
+unsigned char \hyperlink{classtransmissionPacket_a2bac62071baef91a910f71292119f944}{get\-Length} () const 
+\begin{DoxyCompactList}\small\item\em the getter that returns the message length(only the data portion), plus 2 to get the whole length \end{DoxyCompactList}\item 
+void \hyperlink{classtransmissionPacket_a61782a9ac9a54deaff19d18d35887a9a}{set\-Data} (const unsigned char $\ast$data)
+\begin{DoxyCompactList}\small\item\em set the raw byte data, use the set\-Data with \hyperlink{classtransmissionData}{transmission\-Data} if possible. \end{DoxyCompactList}\item 
+const unsigned char $\ast$ \hyperlink{classtransmissionPacket_aa045bdb41e7aa7f79f95f71e531867ce}{get\-Data} () const 
+\begin{DoxyCompactList}\small\item\em getter that returns the raw byte data portion \end{DoxyCompactList}\item 
+unsigned char $\ast$ \hyperlink{classtransmissionPacket_a4ea135da255bde628ed9d767850308da}{to\-Packet} () const 
+\begin{DoxyCompactList}\small\item\em generates the packet as bytes, free them after using them to avoid leak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtransmissionPacket_a520828d810142c658353da76ca357fc3}{unsigned char {\bfseries message\-Type}}\label{classtransmissionPacket_a520828d810142c658353da76ca357fc3}
+
+\item 
+\hypertarget{classtransmissionPacket_a432d5d807d0489f293cbb14c05676364}{unsigned char {\bfseries message\-Length}}\label{classtransmissionPacket_a432d5d807d0489f293cbb14c05676364}
+
+\item 
+\hypertarget{classtransmissionPacket_a16a79955719ada0ca63f3c0935767e79}{unsigned char $\ast$ {\bfseries message\-Data}}\label{classtransmissionPacket_a16a79955719ada0ca63f3c0935767e79}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The transmission meta packet The meta packet to be send that includes \hyperlink{classtransmissionData}{transmission\-Data}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtransmissionPacket_a937e455a3d6e31afa8b95f8eac7a5916}{\index{transmission\-Packet@{transmission\-Packet}!transmission\-Packet@{transmission\-Packet}}
+\index{transmission\-Packet@{transmission\-Packet}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{transmission\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}transmission\-Packet\-::transmission\-Packet (
+\begin{DoxyParamCaption}
+\item[{const {\bf transmission\-Packet} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classtransmissionPacket_a937e455a3d6e31afa8b95f8eac7a5916}
+
+
+copy constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the object to copy from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtransmissionPacket_aa045bdb41e7aa7f79f95f71e531867ce}{\index{transmission\-Packet@{transmission\-Packet}!get\-Data@{get\-Data}}
+\index{get\-Data@{get\-Data}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{get\-Data}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned char $\ast$ transmission\-Packet\-::get\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classtransmissionPacket_aa045bdb41e7aa7f79f95f71e531867ce}
+
+
+getter that returns the raw byte data portion 
+
+\begin{DoxyReturn}{Returns}
+the raw byte datagram 
+\end{DoxyReturn}
+\hypertarget{classtransmissionPacket_a2bac62071baef91a910f71292119f944}{\index{transmission\-Packet@{transmission\-Packet}!get\-Length@{get\-Length}}
+\index{get\-Length@{get\-Length}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{get\-Length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char transmission\-Packet\-::get\-Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classtransmissionPacket_a2bac62071baef91a910f71292119f944}
+
+
+the getter that returns the message length(only the data portion), plus 2 to get the whole length 
+
+\begin{DoxyReturn}{Returns}
+the length of data 
+\end{DoxyReturn}
+\hypertarget{classtransmissionPacket_a1b2b7b416601545c898b8ca6fec4fbb2}{\index{transmission\-Packet@{transmission\-Packet}!get\-Message\-Type@{get\-Message\-Type}}
+\index{get\-Message\-Type@{get\-Message\-Type}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{get\-Message\-Type}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char transmission\-Packet\-::get\-Message\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classtransmissionPacket_a1b2b7b416601545c898b8ca6fec4fbb2}
+
+
+the getter that returns the message type 
+
+\begin{DoxyReturn}{Returns}
+message type 
+\end{DoxyReturn}
+\hypertarget{classtransmissionPacket_aa4a40b8255162e01bd5f8e187a615984}{\index{transmission\-Packet@{transmission\-Packet}!operator=@{operator=}}
+\index{operator=@{operator=}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf transmission\-Packet} \& transmission\-Packet\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf transmission\-Packet} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classtransmissionPacket_aa4a40b8255162e01bd5f8e187a615984}
+
+
+assignment operator that clear this object, and copy over data from src 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the data to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+\hypertarget{classtransmissionPacket_addb25c2a8297115224d3b229e558c7a4}{\index{transmission\-Packet@{transmission\-Packet}!set\-Data@{set\-Data}}
+\index{set\-Data@{set\-Data}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{set\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void transmission\-Packet\-::set\-Data (
+\begin{DoxyParamCaption}
+\item[{{\bf transmission\-Data} \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classtransmissionPacket_addb25c2a8297115224d3b229e558c7a4}
+
+
+the function that includes the transmission datagram into this object. 
+
+It also set the message length based on data 
+\begin{DoxyParams}{Parameters}
+{\em data} & the data to include \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtransmissionPacket_a61782a9ac9a54deaff19d18d35887a9a}{\index{transmission\-Packet@{transmission\-Packet}!set\-Data@{set\-Data}}
+\index{set\-Data@{set\-Data}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{set\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void transmission\-Packet\-::set\-Data (
+\begin{DoxyParamCaption}
+\item[{const unsigned char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{classtransmissionPacket_a61782a9ac9a54deaff19d18d35887a9a}
+
+
+set the raw byte data, use the set\-Data with \hyperlink{classtransmissionData}{transmission\-Data} if possible. 
+
+Set the data length manually. \begin{DoxySeeAlso}{See Also}
+\hyperlink{classtransmissionPacket_aa4dd4a99956e6a3078d19bdca005e4b3}{set\-Message\-Length(const unsigned char length)} 
+
+\hyperlink{classtransmissionPacket_addb25c2a8297115224d3b229e558c7a4}{set\-Data(transmission\-Data\& data)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & the raw byte to set \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtransmissionPacket_aa4dd4a99956e6a3078d19bdca005e4b3}{\index{transmission\-Packet@{transmission\-Packet}!set\-Message\-Length@{set\-Message\-Length}}
+\index{set\-Message\-Length@{set\-Message\-Length}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{set\-Message\-Length}]{\setlength{\rightskip}{0pt plus 5cm}void transmission\-Packet\-::set\-Message\-Length (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{length}
+\end{DoxyParamCaption}
+)}}\label{classtransmissionPacket_aa4dd4a99956e6a3078d19bdca005e4b3}
+
+
+the setter that set the data length, use set\-Data if possible 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classtransmissionPacket_addb25c2a8297115224d3b229e558c7a4}{set\-Data(transmission\-Data\& data)} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em length} & the length(of data) to set \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtransmissionPacket_aaf57e80cee2a9a6632f21bec6e791617}{\index{transmission\-Packet@{transmission\-Packet}!set\-Message\-Type@{set\-Message\-Type}}
+\index{set\-Message\-Type@{set\-Message\-Type}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{set\-Message\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void transmission\-Packet\-::set\-Message\-Type (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{t}
+\end{DoxyParamCaption}
+)}}\label{classtransmissionPacket_aaf57e80cee2a9a6632f21bec6e791617}
+
+
+setter that set the message type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & the value to set \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtransmissionPacket_a4ea135da255bde628ed9d767850308da}{\index{transmission\-Packet@{transmission\-Packet}!to\-Packet@{to\-Packet}}
+\index{to\-Packet@{to\-Packet}!transmissionPacket@{transmission\-Packet}}
+\subsubsection[{to\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char $\ast$ transmission\-Packet\-::to\-Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classtransmissionPacket_a4ea135da255bde628ed9d767850308da}
+
+
+generates the packet as bytes, free them after using them to avoid leak. 
+
+\begin{DoxyReturn}{Returns}
+the raw bytes packet 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+transmission.\-h\item 
+transmission.\-cpp\end{DoxyCompactItemize}

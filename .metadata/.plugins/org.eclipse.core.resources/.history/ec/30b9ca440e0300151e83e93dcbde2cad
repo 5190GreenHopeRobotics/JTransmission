@@ -1,0 +1,51 @@
+package net.viperfish.propertyManager.controller;
+
+import javax.servlet.http.HttpServletResponse;
+
+import net.viperfish.propertyManager.service.TenantService;
+import net.viperfish.propertyManager.tenant.Tenant;
+import net.viperfish.propertyManager.tenant.TenantLinker;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("tenant")
+public class TenantController {
+
+	@Autowired
+	protected TenantService tenantService;
+
+	public TenantController() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@RequestMapping(value = "{tenantID}", method = RequestMethod.GET)
+	public @ResponseBody Tenant getTenant(@PathVariable("tenantID") Long id,
+			HttpServletResponse response) {
+		Tenant t = tenantService.getTenant(id);
+		if (t == null) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		}
+		return t;
+	}
+
+	@RequestMapping(value = "{tenantID}", method = RequestMethod.DELETE)
+	public @ResponseBody Tenant removeTenant(@PathVariable("tenantID") Long id,
+			HttpServletResponse response) {
+		Tenant t = tenantService.remove(id);
+		if (t == null) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		}
+		return t;
+	}
+
+	public @ResponseBody Iterable<TenantLinker> discover() {
+
+	}
+
+}

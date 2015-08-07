@@ -1,0 +1,26 @@
+package net.viperfish.ticketServer;
+
+import java.net.Socket;
+
+public class Client {
+	protected static int currentID;
+	protected Socket sock;
+	protected int id;
+	public Client(Socket sock) {
+		this.sock = sock;
+		id = currentID;
+		currentID= currentID+1;
+	}
+	
+	public boolean reportError() {
+		
+	}
+	
+	public boolean sendTicket() {
+		
+	}
+	
+	public boolean pushCurrent(int num) {
+		
+	}
+}

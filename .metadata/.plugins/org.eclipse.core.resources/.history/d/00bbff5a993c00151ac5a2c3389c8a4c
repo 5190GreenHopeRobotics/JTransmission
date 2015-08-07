@@ -1,0 +1,63 @@
+package frc5190;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class TransmissionPacket {
+
+	protected Byte messageType;
+	protected Byte messageLength;
+	protected List<Byte> data;
+
+	public TransmissionPacket() {
+		messageType = new Byte((byte) 0);
+		messageLength = new Byte((byte) 0);
+		data = new LinkedList<Byte>();
+	}
+
+	/**
+	 * @return the messageType
+	 */
+	public Byte getMessageType() {
+		return messageType;
+	}
+
+	/**
+	 * @param messageType
+	 *            the messageType to set
+	 */
+	public void setMessageType(Byte messageType) {
+		this.messageType = messageType;
+	}
+
+	/**
+	 * @return the messageLength
+	 */
+	public Byte getMessageLength() {
+		return messageLength;
+	}
+
+	/**
+	 * @param messageLength
+	 *            the messageLength to set
+	 */
+	public void setMessageLength(Byte messageLength) {
+		this.messageLength = messageLength;
+	}
+
+	public Byte[] getData() {
+		return data.toArray(new Byte[2]);
+	}
+
+	/**
+	 * @param data
+	 *            the data to set
+	 */
+	public void setData(Byte[] data) {
+		List<Byte> b = new Linked
+		this.data = new LinkedList<Byte>(data);
+	}
+	
+	public 
+
+}

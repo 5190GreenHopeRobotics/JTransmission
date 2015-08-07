@@ -1,0 +1,13 @@
+package net.viperfish.propertyManager;
+
+public interface JpaDataAccessObject<K, T> {
+
+	public T get(K key);
+
+	public T put(T data);
+
+	public T update(T data);
+
+	public T remove(K key);
+
+}

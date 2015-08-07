@@ -1,0 +1,13 @@
+package net.viperfish.requestServer;
+
+public class Request {
+	private String src;
+	
+	public Request() {
+		src = new String();
+	}
+	
+	public void setSrc(String src) {
+		this.src = src;
+	}
+}

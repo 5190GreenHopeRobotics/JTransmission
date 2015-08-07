@@ -1,0 +1,11 @@
+package net.viperfish.requestServer;
+
+import java.net.ServerSocket;
+
+public class ConnectionHandler {
+	private ServerSocket meta;
+	private HashMap<Socket> s;
+	public ConnectionHandler() {
+		
+	}
+}

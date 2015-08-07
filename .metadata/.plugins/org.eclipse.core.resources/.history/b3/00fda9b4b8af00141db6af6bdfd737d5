@@ -1,0 +1,26 @@
+package net.viperfish.requestServer;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ConnectionHandler {
+	static private ServerSocket meta;
+	static private ExecutorService exec;
+	static private HashMap<Integer,Socket> s;
+	static {
+		try {
+			meta = new ServerSocket(8080);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(0);
+		}
+		exec = Executors.newCachedThreadPool();
+	}
+	
+	public 
+}

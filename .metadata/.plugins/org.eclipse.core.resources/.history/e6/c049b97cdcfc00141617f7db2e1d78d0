@@ -1,0 +1,7 @@
+package net.viperfish.propertyManager.morgage;
+
+import net.viperfish.propertyManager.JpaDataAccessObject;
+
+public interface MortgageDAO extends JpaDataAccessObject<K, T> {
+
+}

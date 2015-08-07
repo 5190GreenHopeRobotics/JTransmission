@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['operator_3d',['operator=',['../classtransmissionPacket.html#aa4a40b8255162e01bd5f8e187a615984',1,'transmissionPacket::operator=()'],['../classkeepStateData.html#a9ead812a2543c35f36c3c35af4aabe75',1,'keepStateData::operator=()'],['../classcommandData.html#a2228dd04ac097ddaa8ff8f3d9bf4fedd',1,'commandData::operator=()'],['../classsensorData.html#a6b5e8d1467b390fd41a707667ec28bf2',1,'sensorData::operator=()']]],
+  ['operator_3d_3d',['operator==',['../classkeepStateData.html#ad90d41e7caa04816ec18d4055fb830f8',1,'keepStateData::operator==()'],['../classcommandData.html#affd38cebd2bfe2485aecf552201d810e',1,'commandData::operator==()'],['../classsensorData.html#aacea3e817ae9b69b635271562fa483da',1,'sensorData::operator==()']]]
+];

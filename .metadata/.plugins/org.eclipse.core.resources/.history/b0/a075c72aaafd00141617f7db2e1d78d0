@@ -1,0 +1,91 @@
+package net.viperfish.propertyManager.controller;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+
+import net.viperfish.propertyManager.property.Property;
+import net.viperfish.propertyManager.service.PropertyService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("/property")
+public class PropertyController {
+
+	@Autowired
+	protected PropertyService propertyService;
+
+	public PropertyController() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@RequestMapping(value = "{propertyID}", method = RequestMethod.GET)
+	public @ResponseBody Property getProperty(
+			@PathVariable("propertyID") Long id, HttpServletResponse response) {
+		Property target = propertyService.getProperty(id);
+		if (target == null) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		}
+		return target;
+	}
+
+	@RequestMapping(method = RequestMethod.POST)
+	public @ResponseBody Property putProperty(@RequestBody @Valid Property p,
+			Errors error, HttpServletResponse response) {
+		if (error.hasErrors()) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			return null;
+		}
+		Property added = propertyService.addProperty(p);
+		if (added == null) {
+			response.setStatus(HttpServletResponse.SC_CONFLICT);
+		}
+		return added;
+	}
+
+	@RequestMapping(value = "{propertyID}", method = RequestMethod.DELETE)
+	public @ResponseBody Property delete(@PathVariable("propertyID") Long id,
+			HttpServletResponse response) {
+		Property deleted = propertyService.deleteProperty(id);
+		if (deleted == null) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		}
+		return deleted;
+	}
+
+	@RequestMapping(value = "{propertyID}", method = RequestMethod.PUT)
+	public @ResponseBody Property updateProperty(
+			@PathVariable("propertyID") Long id,
+			@Valid @RequestBody Property p, Errors error,
+			HttpServletResponse response) {
+		if (error.hasErrors()) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			return null;
+		}
+		Property updated = propertyService.updateProperty(p, propertyName);
+		if (updated == null) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		}
+		return updated;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, params = { "propertyName" })
+	public @ResponseBody Property[] searchProperty(
+			@RequestParam(value = "propertyName", required = true) String search) {
+		return propertyService.searchProperty(search);
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public @ResponseBody Property[] allProperty() {
+		return propertyService.getAll();
+	}
+
+}

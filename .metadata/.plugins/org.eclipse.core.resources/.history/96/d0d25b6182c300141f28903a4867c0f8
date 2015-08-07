@@ -1,0 +1,33 @@
+package net.viperfish.DAO;
+
+public class SearchKey {
+	protected String field;
+	protected String key;
+
+	public SearchKey() {
+		field = new String();
+		key = new String();
+	}
+
+	public SearchKey(String field, String key) {
+		this.field = field;
+		this.key = key;
+	}
+
+	public String getField() {
+		return field;
+	}
+
+	public void setField(String field) {
+		this.field = field;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+}

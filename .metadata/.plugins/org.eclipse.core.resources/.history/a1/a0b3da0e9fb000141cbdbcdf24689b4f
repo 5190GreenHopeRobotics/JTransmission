@@ -1,0 +1,22 @@
+package net.viperfish.ticketClient;
+
+import java.net.Socket;
+import java.net.SocketAddress;
+
+public class ClientWorker implements Runnable {
+
+	Socket sock;
+	SocketAddress server;
+	public void connect(String ip) {
+		sock = new Socket();
+		
+		sock.connect(, timeout);
+	}
+	
+	@Override
+	public void run() {
+		
+
+	}
+
+}

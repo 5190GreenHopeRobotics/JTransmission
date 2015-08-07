@@ -1,0 +1,39 @@
+package net.viperfish.propertyManager.property;
+
+public class PropertyDaoImpl implements PropertyDAO {
+
+	public PropertyDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Property get(Long key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Property put(Property data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Property update(Property data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Property remove(Long key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Property keywordSearch(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

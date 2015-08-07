@@ -1,0 +1,15 @@
+package net.viperfish.ticketClient;
+
+import java.net.Socket;
+
+public class ClientWorker implements Runnable {
+
+	Socket sock;
+	
+	@Override
+	public void run() {
+		
+
+	}
+
+}

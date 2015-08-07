@@ -1,0 +1,42 @@
+package net.viperfish.propertyManager.property;
+
+import net.viperfish.propertyManager.morgage.Mortgage;
+import net.viperfish.propertyManager.morgage.MortgageDataAccessObject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("test")
+public class PropertyDAOTest {
+
+	@Autowired
+	PropertyDataAccessObject propertyDao;
+
+	@Autowired
+	MortgageDataAccessObject mortgageDao;
+
+	public PropertyDAOTest() {
+
+	}
+
+	@RequestMapping(value = "property", method = RequestMethod.GET)
+	public @ResponseBody Property test() {
+		Property searchField = new Property();
+		searchField.setName("test5");
+		Property test = propertyDao.get(searchField);
+		return test;
+	}
+
+	@RequestMapping(value = "mortgage", method = RequestMethod.GET)
+	public @ResponseBody Mortgage testMortgage() {
+		Mortgage searchField = new Mortgage();
+		searchField.setPropertyName("test5");
+		Mortgage m = mortgageDao.get(searchField);
+		return m;
+	}
+
+}

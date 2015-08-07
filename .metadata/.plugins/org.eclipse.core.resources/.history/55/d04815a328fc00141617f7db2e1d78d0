@@ -1,0 +1,7 @@
+package net.viperfish.propertyManager.property;
+
+import net.viperfish.propertyManager.JpaDataAccessObject;
+
+public interface PropertyDAO extends JpaDataAccessObject<K, T> {
+
+}

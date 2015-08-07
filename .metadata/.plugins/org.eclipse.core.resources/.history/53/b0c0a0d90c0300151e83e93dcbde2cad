@@ -1,0 +1,9 @@
+package net.viperfish.propertyManager.controller;
+
+public class TenantController {
+
+	public TenantController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

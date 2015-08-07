@@ -1,0 +1,81 @@
+package net.viperfish.propertyManager.service;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import net.viperfish.propertyManager.lease.Lease;
+import net.viperfish.propertyManager.lease.LeaseDAO;
+import net.viperfish.propertyManager.lease.LeaseIndexer;
+import net.viperfish.propertyManager.property.PropertyDAO;
+import net.viperfish.propertyManager.tenant.TenantDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class LeaseService {
+
+	@Autowired
+	protected LeaseDAO leaseDao;
+	@Autowired
+	protected PropertyDAO propertyDao;
+	@Autowired
+	protected TenantDAO tenantDao;
+	protected LeaseIndexer indexer;
+
+	protected void fillInName(Lease l) {
+		l.setTenantName(tenantDao.get(l.getTenantID()).getName());
+		l.setPropertyName(tenantDao.get(l.getPropertyID()).getName());
+
+	}
+
+	public LeaseService() {
+		indexer = new LeaseIndexer();
+	}
+
+	public Lease addLease(Lease toAdd) {
+		Lease added = leaseDao.put(toAdd);
+		fillInName(added);
+		indexer.add(added);
+		return added;
+	}
+
+	public Lease getLease(Long id) {
+		Lease result = leaseDao.get(id);
+		fillInName(result);
+		return result;
+
+	}
+
+	public Lease update(Long id, Lease update) {
+		if (update.getId().equals(id)) {
+			return null;
+		}
+		Lease updated = leaseDao.update(update);
+		fillInName(updated);
+		indexer.delete(id);
+		indexer.add(updated);
+		return updated;
+	}
+
+	public Lease remove(Long id) {
+		Lease deleted = leaseDao.remove(id);
+		indexer.delete(id);
+		return deleted;
+	}
+
+	public Iterable<Lease> getAll() {
+		return leaseDao.getAll();
+	}
+
+	public Iterable<Lease> search(String keywords) {
+		List<Lease> result = new LinkedList<Lease>();
+		for (Long i : indexer.search(keywords)) {
+			Lease l = leaseDao.get(i);
+			if (l == null) {
+				indexer.delete(i);
+				continue;
+			}
+			result.add(l);
+		}
+		return result;
+	}
+}

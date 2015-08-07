@@ -1,0 +1,10 @@
+package net.viperfish.ticketSpring;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/helloworld")
+public class HelloWorld {
+
+}

@@ -1,0 +1,187 @@
+\hypertarget{classkeepStateData}{\section{keep\-State\-Data Class Reference}
+\label{classkeepStateData}\index{keep\-State\-Data@{keep\-State\-Data}}
+}
+
+
+the \hyperlink{classkeepStateData}{keep\-State\-Data} datagram the \hyperlink{classkeepStateData}{keep\-State\-Data} datagram is the keep-\/alive message sent from the roborio to the arduino  
+
+
+
+
+{\ttfamily \#include $<$transmission.\-h$>$}
+
+Inheritance diagram for keep\-State\-Data\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classkeepStateData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classkeepStateData_a97b2505d968f9ad8a36ccd821cb17380}{\hyperlink{classkeepStateData_a97b2505d968f9ad8a36ccd821cb17380}{keep\-State\-Data} ()}\label{classkeepStateData_a97b2505d968f9ad8a36ccd821cb17380}
+
+\begin{DoxyCompactList}\small\item\em default ctor \end{DoxyCompactList}\item 
+\hyperlink{classkeepStateData_a6d8820bfb131931ab2cb41d9f00a37f5}{keep\-State\-Data} (const \hyperlink{classkeepStateData}{keep\-State\-Data} \&src)
+\begin{DoxyCompactList}\small\item\em copy ctor \end{DoxyCompactList}\item 
+\hyperlink{classkeepStateData}{keep\-State\-Data} \& \hyperlink{classkeepStateData_a9ead812a2543c35f36c3c35af4aabe75}{operator=} (const \hyperlink{classkeepStateData}{keep\-State\-Data} \&src)
+\begin{DoxyCompactList}\small\item\em assignment operator \end{DoxyCompactList}\item 
+bool \hyperlink{classkeepStateData_ad90d41e7caa04816ec18d4055fb830f8}{operator==} (const \hyperlink{classkeepStateData}{keep\-State\-Data} \&src)
+\begin{DoxyCompactList}\small\item\em comparison operator \end{DoxyCompactList}\item 
+void \hyperlink{classkeepStateData_a67fab4cc21ddb47be8410d29d84f9c36}{set\-State} (const unsigned char state)
+\begin{DoxyCompactList}\small\item\em set the state field of the datagram, 0 for auto, 1 for tele, 2 for test \end{DoxyCompactList}\item 
+unsigned char \hyperlink{classkeepStateData_ab20abe620e85e78a7efebacdb2ba7b74}{get\-State} () const 
+\begin{DoxyCompactList}\small\item\em the getter that gets the state \end{DoxyCompactList}\item 
+void \hyperlink{classkeepStateData_acff5898677f0bc2c6dd3b2e52fc1af28}{set\-Sequence} (const unsigned char sequence)
+\begin{DoxyCompactList}\small\item\em the setter that sets the sequence which should with each packet \end{DoxyCompactList}\item 
+unsigned char \hyperlink{classkeepStateData_ae82574aa79079018c68423ceba1b0ebe}{get\-Sequence} () const 
+\begin{DoxyCompactList}\small\item\em the getter that gets the sequence \end{DoxyCompactList}\item 
+\hypertarget{classkeepStateData_ac56b710feb9018b857064081d6605526}{const unsigned char $\ast$ \hyperlink{classkeepStateData_ac56b710feb9018b857064081d6605526}{to\-Packet} ()}\label{classkeepStateData_ac56b710feb9018b857064081d6605526}
+
+\begin{DoxyCompactList}\small\item\em see super class \end{DoxyCompactList}\item 
+\hypertarget{classkeepStateData_a5e777ed84928e6dcdbb508732ef4284a}{unsigned char \hyperlink{classkeepStateData_a5e777ed84928e6dcdbb508732ef4284a}{get\-Length} () const }\label{classkeepStateData_a5e777ed84928e6dcdbb508732ef4284a}
+
+\begin{DoxyCompactList}\small\item\em see super class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classkeepStateData_a9520498555a8d29664ef5ddefcd62b3f}{unsigned char {\bfseries state}}\label{classkeepStateData_a9520498555a8d29664ef5ddefcd62b3f}
+
+\item 
+\hypertarget{classkeepStateData_aba6dc5e608140d2acc080bfec4d9daa0}{unsigned char {\bfseries sequence}}\label{classkeepStateData_aba6dc5e608140d2acc080bfec4d9daa0}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+the \hyperlink{classkeepStateData}{keep\-State\-Data} datagram the \hyperlink{classkeepStateData}{keep\-State\-Data} datagram is the keep-\/alive message sent from the roborio to the arduino 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classtransmissionData}{transmission\-Data} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classkeepStateData_a6d8820bfb131931ab2cb41d9f00a37f5}{\index{keep\-State\-Data@{keep\-State\-Data}!keep\-State\-Data@{keep\-State\-Data}}
+\index{keep\-State\-Data@{keep\-State\-Data}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{keep\-State\-Data}]{\setlength{\rightskip}{0pt plus 5cm}keep\-State\-Data\-::keep\-State\-Data (
+\begin{DoxyParamCaption}
+\item[{const {\bf keep\-State\-Data} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classkeepStateData_a6d8820bfb131931ab2cb41d9f00a37f5}
+
+
+copy ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & object to copy from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classkeepStateData_ae82574aa79079018c68423ceba1b0ebe}{\index{keep\-State\-Data@{keep\-State\-Data}!get\-Sequence@{get\-Sequence}}
+\index{get\-Sequence@{get\-Sequence}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{get\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char keep\-State\-Data\-::get\-Sequence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classkeepStateData_ae82574aa79079018c68423ceba1b0ebe}
+
+
+the getter that gets the sequence 
+
+\begin{DoxyReturn}{Returns}
+the sequence num 
+\end{DoxyReturn}
+\hypertarget{classkeepStateData_ab20abe620e85e78a7efebacdb2ba7b74}{\index{keep\-State\-Data@{keep\-State\-Data}!get\-State@{get\-State}}
+\index{get\-State@{get\-State}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{get\-State}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char keep\-State\-Data\-::get\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classkeepStateData_ab20abe620e85e78a7efebacdb2ba7b74}
+
+
+the getter that gets the state 
+
+\begin{DoxyReturn}{Returns}
+the state 
+\end{DoxyReturn}
+\hypertarget{classkeepStateData_a9ead812a2543c35f36c3c35af4aabe75}{\index{keep\-State\-Data@{keep\-State\-Data}!operator=@{operator=}}
+\index{operator=@{operator=}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf keep\-State\-Data} \& keep\-State\-Data\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf keep\-State\-Data} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classkeepStateData_a9ead812a2543c35f36c3c35af4aabe75}
+
+
+assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & object to assign from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+\hypertarget{classkeepStateData_ad90d41e7caa04816ec18d4055fb830f8}{\index{keep\-State\-Data@{keep\-State\-Data}!operator==@{operator==}}
+\index{operator==@{operator==}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool keep\-State\-Data\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf keep\-State\-Data} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classkeepStateData_ad90d41e7caa04816ec18d4055fb830f8}
+
+
+comparison operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the object to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result 
+\end{DoxyReturn}
+\hypertarget{classkeepStateData_acff5898677f0bc2c6dd3b2e52fc1af28}{\index{keep\-State\-Data@{keep\-State\-Data}!set\-Sequence@{set\-Sequence}}
+\index{set\-Sequence@{set\-Sequence}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{set\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}void keep\-State\-Data\-::set\-Sequence (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{sequence}
+\end{DoxyParamCaption}
+)}}\label{classkeepStateData_acff5898677f0bc2c6dd3b2e52fc1af28}
+
+
+the setter that sets the sequence which should with each packet 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & the sequence num \\
+\hline
+\end{DoxyParams}
+\hypertarget{classkeepStateData_a67fab4cc21ddb47be8410d29d84f9c36}{\index{keep\-State\-Data@{keep\-State\-Data}!set\-State@{set\-State}}
+\index{set\-State@{set\-State}!keepStateData@{keep\-State\-Data}}
+\subsubsection[{set\-State}]{\setlength{\rightskip}{0pt plus 5cm}void keep\-State\-Data\-::set\-State (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{state}
+\end{DoxyParamCaption}
+)}}\label{classkeepStateData_a67fab4cc21ddb47be8410d29d84f9c36}
+
+
+set the state field of the datagram, 0 for auto, 1 for tele, 2 for test 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & the state \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+transmission.\-h\item 
+transmission.\-cpp\end{DoxyCompactItemize}

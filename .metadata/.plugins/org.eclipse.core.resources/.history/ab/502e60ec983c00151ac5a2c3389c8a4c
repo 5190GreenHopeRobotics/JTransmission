@@ -1,0 +1,55 @@
+\hypertarget{classpacketBuffer}{\section{packet\-Buffer Class Reference}
+\label{classpacketBuffer}\index{packet\-Buffer@{packet\-Buffer}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classpacketBuffer_a21f008a6b11da0f272357c046602c4b8}{void {\bfseries add\-Byte} (const unsigned char b)}\label{classpacketBuffer_a21f008a6b11da0f272357c046602c4b8}
+
+\item 
+\hypertarget{classpacketBuffer_af97308dcebd84dbc56ff19663f216228}{frc5190\-::vector\\*
+$<$ \hyperlink{classtransmissionPacket}{transmission\-Packet} $>$ {\bfseries get\-Packets} ()}\label{classpacketBuffer_af97308dcebd84dbc56ff19663f216228}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtransmissionPacket}{transmission\-Packet} \hyperlink{classpacketBuffer_a0b809917ab3a8c67c32c2c3748afd865}{interpret\-Raw\-Data} (const unsigned char $\ast$packet)
+\begin{DoxyCompactList}\small\item\em convert raw bytes into a \hyperlink{classtransmissionPacket}{transmission\-Packet} which needs to be processed further, this is first step \end{DoxyCompactList}\item 
+\hypertarget{classpacketBuffer_ab8f2876a2bffdc8990f8f4eeb8a6c038}{unsigned char $\ast$ {\bfseries get\-Next} ()}\label{classpacketBuffer_ab8f2876a2bffdc8990f8f4eeb8a6c038}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classpacketBuffer_a2051b53e014f1b6c7930496701806c80}{frc5190\-::vector$<$ unsigned char $>$ {\bfseries buf}}\label{classpacketBuffer_a2051b53e014f1b6c7930496701806c80}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classpacketBuffer_a0b809917ab3a8c67c32c2c3748afd865}{\index{packet\-Buffer@{packet\-Buffer}!interpret\-Raw\-Data@{interpret\-Raw\-Data}}
+\index{interpret\-Raw\-Data@{interpret\-Raw\-Data}!packetBuffer@{packet\-Buffer}}
+\subsubsection[{interpret\-Raw\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf transmission\-Packet} packet\-Buffer\-::interpret\-Raw\-Data (
+\begin{DoxyParamCaption}
+\item[{const unsigned char $\ast$}]{packet}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classpacketBuffer_a0b809917ab3a8c67c32c2c3748afd865}
+
+
+convert raw bytes into a \hyperlink{classtransmissionPacket}{transmission\-Packet} which needs to be processed further, this is first step 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & the raw bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+converted object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+transmission.\-h\item 
+transmission.\-cpp\end{DoxyCompactItemize}

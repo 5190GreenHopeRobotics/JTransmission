@@ -1,0 +1,85 @@
+package net.viperfish.requestServer;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ConnectionHandler {
+	static private ServerSocket meta;
+	static private ExecutorService exec;
+	static private Thread worker;
+	static private int current;
+	static private HashMap<Integer,ConnectionThread> s;
+	static private LinkedList<Request> queue;
+	static private LinkedList<Response> responseQueue;
+	static {
+		try {
+			meta = new ServerSocket(8080);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit(0);
+		}
+		s = new HashMap<Integer, ConnectionThread>();
+		queue = new LinkedList<Request>();
+		responseQueue = new LinkedList<Response>();
+		exec = Executors.newCachedThreadPool();
+		worker = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				while(!Thread.interrupted()) {
+					synchronized(this){
+						for(Response r : responseQueue) {
+							if(r!=null) {
+								try {
+									s.get(new Integer(r.getTarget())).send(r);
+								} catch (IOException e) {
+									e.printStackTrace();
+									continue;
+								}
+							}
+						}
+					}
+				}
+
+			}
+
+		});
+	}
+	
+	public static void start() {
+		Socket c;
+		while(true) {
+			try {
+				c = meta.accept();
+			} catch (IOException e) {
+				continue;
+			}
+			try {
+				s.put(new Integer(current), new ConnectionThread(c,current));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				continue;
+			}
+		}
+	}
+	
+	public static synchronized void addRequest(Request q) {
+		queue.push(q);
+	}
+	
+	public static synchronized Request getRequest() {
+		return queue.pop();
+	}
+	
+	public static synchronized void sendResponse(Response p) {
+		responseQueue.push(p);
+	}
+	
+}

@@ -1,0 +1,13 @@
+package frc5190;
+
+public class TransmissionPacket {
+
+	protected Byte messageType;
+	protected Byte messageLength;
+	protected Byte[] data;
+
+	public TransmissionPacket() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

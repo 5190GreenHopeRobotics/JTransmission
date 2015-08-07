@@ -1,0 +1,69 @@
+package net.viperfish.propertyManager.service;
+
+import net.viperfish.propertyManager.insurance.Insurance;
+import net.viperfish.propertyManager.insurance.InsuranceDAO;
+import net.viperfish.propertyManager.insurance.InsuranceIndexer;
+import net.viperfish.propertyManager.property.Property;
+import net.viperfish.propertyManager.property.PropertyDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class InsuranceService {
+
+	protected InsuranceIndexer indexer;
+	@Autowired
+	protected InsuranceDAO insuranceDao;
+	@Autowired
+	protected PropertyDAO propertyDao;
+
+	protected void fillInName(Insurance i) {
+		Property p = propertyDao.get(i.getPropertyID());
+		if (p == null) {
+			i.setPropertyName("No Property");
+		} else {
+			i.setPropertyName(p.getName());
+		}
+	}
+
+	public InsuranceService() {
+		indexer = new InsuranceIndexer();
+	}
+
+	public Insurance put(Insurance toAdd) {
+		insuranceDao.put(toAdd);
+		fillInName(toAdd);
+		indexer.add(toAdd);
+		return toAdd;
+	}
+
+	public Insurance update(Long id, Insurance update) {
+		update.setId(id);
+		insuranceDao.update(update);
+		fillInName(update);
+		indexer.delete(id);
+		indexer.add(update);
+		return update;
+	}
+
+	public Insurance delete(Long id) {
+		Insurance i = get(id);
+		if (i == null) {
+			return null;
+		}
+		insuranceDao.remove(id);
+		indexer.delete(id);
+		return i;
+	}
+
+	public Insurance get(Long id) {
+
+	}
+
+	public Iterable<Insurance> getAll() {
+
+	}
+
+	public Iterable<Insurance> search(String keywords) {
+
+	}
+}

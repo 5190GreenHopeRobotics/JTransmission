@@ -1,0 +1,9 @@
+package net.viperfish.propertyManager.service;
+
+public class InsuranceService {
+
+	public InsuranceService() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

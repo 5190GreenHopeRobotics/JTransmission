@@ -1,0 +1,18 @@
+package net.viperfish.requestServer;
+
+public class Response {
+	private int target;
+	private String message;
+	
+	public Response() {
+		message = new String();
+	}
+	
+	public String getMessage() {
+		return message;
+	}
+	
+	public void setMessage(String mess) {
+		message = mess;
+	}
+}

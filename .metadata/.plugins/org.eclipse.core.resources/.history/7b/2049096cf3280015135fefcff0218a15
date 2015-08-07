@@ -1,0 +1,18 @@
+package net.viperfish.propertyManager.service;
+
+import net.viperfish.propertyManager.insurance.Insurance;
+import net.viperfish.propertyManager.insurance.InsuranceIndexer;
+
+public class InsuranceService {
+
+	protected InsuranceIndexer indexer;
+
+	public InsuranceService() {
+		indexer = new InsuranceIndexer();
+	}
+
+	public Insurance put(Insurance toAdd) {
+
+	}
+
+}

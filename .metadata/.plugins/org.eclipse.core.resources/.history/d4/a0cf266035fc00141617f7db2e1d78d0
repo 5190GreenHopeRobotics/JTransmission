@@ -1,0 +1,28 @@
+package net.viperfish.propertyManager.property;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("test")
+public class PropertyDAOTest {
+
+	@Autowired
+	PropertyDAO propertyDao;
+
+	public PropertyDAOTest() {
+
+	}
+
+	@RequestMapping(value = "property", method = RequestMethod.GET)
+	public @ResponseBody Property test() {
+		Property searchField = new Property();
+		searchField.setName("test5");
+		Property test = propertyDao.get(searchField);
+		return test;
+	}
+
+}

@@ -1,0 +1,8 @@
+package net.viperfish.ticketServer;
+
+import java.net.Socket;
+
+public class Client {
+	protected static int currentID;
+	protected Socket sock;
+}

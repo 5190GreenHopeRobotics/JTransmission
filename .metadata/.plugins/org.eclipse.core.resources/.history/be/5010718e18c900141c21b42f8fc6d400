@@ -1,0 +1,9 @@
+package net.viperfish.chat;
+
+public class Status {
+
+	public Status() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

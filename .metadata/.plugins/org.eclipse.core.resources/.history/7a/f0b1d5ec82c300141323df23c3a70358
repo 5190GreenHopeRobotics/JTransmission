@@ -1,0 +1,54 @@
+package net.viperfish.DAO;
+
+import net.viperfish.chat.Message;
+
+public class MessageDAO implements DataAcesser<Message> {
+
+	protected JdbcTemplate template;
+	
+	public void createTemplate(DataSource dataSource) {
+		
+	}
+	@Override
+	public void add(Message toAdd) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Message o) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Message[] get(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Message[] get(String[] keys) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Message old, Message newObject) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Message[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

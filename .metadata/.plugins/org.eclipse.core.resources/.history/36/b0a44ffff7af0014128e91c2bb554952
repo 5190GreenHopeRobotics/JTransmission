@@ -1,0 +1,70 @@
+package net.viperfish.ticketServer;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class TicketHandler {
+	protected static int current;
+	protected static Map<Integer, Client> s;
+	protected static LinkedList<Ticket> t;
+	protected static ExecutorService pool;
+	protected static SecureRandom generator;
+	static {
+		s = new HashMap<Integer, Client>();
+		t = new LinkedList<Ticket>();
+		pool = Executors.newCachedThreadPool();
+		generator = new SecureRandom();
+	}
+	
+	public synchronized static void subscribe(Client c) {
+		s.put(c.getID(), c);
+	}
+
+	public synchronized static void unSubscribe(int id) {
+		s.remove(id);
+	}
+
+	public synchronized static Ticket getTicket() {
+		Ticket newTicket = new Ticket();
+		newTicket.setCredential(new BigInteger(130, generator).toString());
+		newTicket.setNum(current);
+		t.push(newTicket);
+		current = current +1;
+		return newTicket;
+	}
+
+	public synchronized static void done(String credential) {
+		MessageDigest md = null;
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+
+		}
+		String localHash;
+		byte[] temp = md.digest(credential.getBytes());
+		localHash = new String(temp);
+		if(localHash.equals(credential)) {
+			t.pop();
+			for(Map.Entry<Integer, Client> i : s.entrySet()) {
+				if(!t.isEmpty()) {
+					i.getValue().pushCurrent(t.getFirst().getNum());
+				}
+				else {
+					if(!i.getValue().reportError(new Error("No Request", 001))) {
+						TicketHandler.unSubscribe(i.getValue().getID());
+					}
+				}
+			}
+		}
+		else {
+			return;
+		}
+	}
+}

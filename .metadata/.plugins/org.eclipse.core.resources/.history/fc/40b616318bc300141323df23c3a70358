@@ -1,0 +1,101 @@
+package net.viperfish.DAO;
+
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import net.viperfish.chat.Message;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Repository;
+
+@Repository("messageDao")
+public class MessageDAO implements DataAcesser<Message> {
+
+	protected JdbcTemplate template;
+
+	@Autowired
+	public void createTemplate(DataSource dataSource) {
+		template = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public void add(Message toAdd) {
+		String query = "INSERT INTO messageTable VALUES("
+				+ toAdd.getDate().getTime() + ",\"" + toAdd.getSrc() + "\",\""
+				+ toAdd.getZone() + "\", \"" + toAdd.getContent() + "\")";
+		template.execute(query);
+
+	}
+
+	@Override
+	public void delete(Message o) {
+		String query = "DELETE FROM messageTable WHERE timeStamp = "
+				+ o.getDate().getTime() + " AND src = \"" + o.getSrc() + "\""
+				+ " AND zone = \"" + o.getZone() + "\"" + " AND content = \""
+				+ o.getContent() + "\"";
+		template.execute(query);
+	}
+
+	@Override
+	public Message[] get(String key) {
+		String query = "SELECT * FROM messageTable WHERE zone = \"" + key
+				+ "\"";
+		SqlRowSet sqlQuery = template.queryForRowSet(query);
+		Message temp;
+		List<Message> m = new LinkedList<Message>();
+		while (sqlQuery.next()) {
+			temp = new Message();
+			temp.setContent(sqlQuery.getString("content"));
+			temp.setDate(new Date(sqlQuery.getLong("timeStamp")));
+			temp.setSrc(sqlQuery.getString("src"));
+			temp.setZone(sqlQuery.getString("zone"));
+			m.add(temp);
+		}
+		return m.toArray(new Message[1]);
+	}
+
+	@Override
+	public Message[] get(String[] keys) {
+		if(keys.length != 4) {
+			return null;
+		}
+		String query = "SELECT * FROM messageTable WHERE ";
+		if(!keys[0].equals("*")) {
+			query += ""
+		}
+		if(!keys[1].equals("*")) {
+			srcEnabled = true;
+		}
+		if(!keys[2].equals("*")) {
+			zoneEnabled = true;
+		}
+		if(!keys[3].equals("*")) {
+			contentEnabled = true;
+		}
+		
+	}
+
+	@Override
+	public void update(Message old, Message newObject) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Message[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

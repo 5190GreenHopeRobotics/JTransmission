@@ -1,0 +1,110 @@
+package net.viperfish.DAO;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import net.viperfish.chat.Zone;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Repository;
+
+@Repository("zoneDao")
+public class ZoneDAO implements DataAcesser<Zone> {
+
+	protected JdbcTemplate template;
+
+	public ZoneDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Autowired
+	public void createTemplate(DataSource dataSource) {
+		template = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public void add(Zone toAdd) {
+		String query = "INSERT INTO zoneTable VALUES(\"" + toAdd.getZoneName()
+				+ "\"," + "\"" + toAdd.getOwner() + "\"," + "\""
+				+ toAdd.getUser() + "\")";
+		template.execute(query);
+	}
+
+	@Override
+	public void delete(Zone o) {
+		String query = "DELETE FROM zoneTable WHERE zoneName = \""
+				+ o.getZoneName() + "\"";
+		template.execute(query);
+
+	}
+
+	@Override
+	public Zone[] get(String key) {
+		// TODO Auto-generated method stub
+		String query = "SELECT FROM zoneTable WHERE zoneName = \"" + key + "\"";
+		List<Zone> result = new LinkedList<Zone>();
+		Zone temp = null;
+		SqlRowSet sqlQuery = template.queryForRowSet(query);
+		String users;
+		String[] part;
+		while (sqlQuery.next()) {
+			temp = new Zone();
+			temp.setOwner(sqlQuery.getString("owner"));
+			temp.setZoneName(sqlQuery.getString("zoneName"));
+			users = sqlQuery.getString("member");
+			part = users.split(",");
+			for (String i : part) {
+				temp.addUser(i);
+			}
+			result.add(temp);
+		}
+		return result.toArray(new Zone[1]);
+	}
+
+	@Override
+	public Zone[] get(String[] keys) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Zone old, Zone newObject) {
+		String query = "UPDATE zoneTable SET owner = \"" + newObject.getOwner()
+				+ "\"" + ",member = \"" + newObject.getUser()
+				+ "\" WHERE zoneName = \"" + old.getZoneName() + "\"";
+		template.execute(query);
+
+	}
+
+	@Override
+	public Zone[] getAll() {
+		String query = "SELECT * FROM zoneTable";
+		SqlRowSet sqlQuery = template.queryForRowSet(query);
+		List<Zone> l = new LinkedList<Zone>();
+		Zone temp;
+		String users;
+		String[] part;
+		while (sqlQuery.next()) {
+			temp = new Zone();
+
+			temp.setOwner(sqlQuery.getString("owner"));
+			temp.setZoneName(sqlQuery.getString("zoneName"));
+			users = sqlQuery.getString("member");
+			part = users.split(",");
+			for (String i : part) {
+				temp.addUser(i);
+			}
+		}
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

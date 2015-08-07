@@ -1,0 +1,9 @@
+package net.viperfish.propertyManager.morgage;
+
+public class MortgageDAOImpl implements MortgageDAO {
+
+	public MortgageDAOImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

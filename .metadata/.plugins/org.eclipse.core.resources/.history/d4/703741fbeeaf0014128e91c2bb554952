@@ -1,0 +1,7 @@
+package net.viperfish.ticketServer;
+
+public class Error {
+	protected String message;
+	
+	public Error()
+}

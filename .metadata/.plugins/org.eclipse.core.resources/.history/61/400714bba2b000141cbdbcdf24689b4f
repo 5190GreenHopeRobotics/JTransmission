@@ -1,0 +1,64 @@
+package net.viperfish.ticketClient;
+
+import java.awt.EventQueue;
+import java.net.Socket;
+
+import javax.swing.JFrame;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+public class TicketClient {
+
+	private JFrame frame;
+	Thread worker;
+	JLabel lblMyTicket;
+	JLabel lblCurrentTicket;
+	JButton btnDone;
+	JButton btnGetticket;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TicketClient window = new TicketClient();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public TicketClient() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 457, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new MigLayout("", "[][][][][][][]", "[][][][][][]"));
+		
+		lblMyTicket = new JLabel("My Ticket");
+		frame.getContentPane().add(lblMyTicket, "cell 4 1");
+		
+		lblCurrentTicket = new JLabel("Current Ticket");
+		frame.getContentPane().add(lblCurrentTicket, "cell 4 2");
+		
+		btnDone = new JButton("Done");
+		frame.getContentPane().add(btnDone, "cell 2 5");
+		
+		btnGetticket = new JButton("GetTicket");
+		frame.getContentPane().add(btnGetticket, "cell 6 5");
+	}
+
+}

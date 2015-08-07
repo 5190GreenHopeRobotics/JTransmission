@@ -1,0 +1,13 @@
+package net.viperfish.chat;
+
+import org.springframework.stereotype.Service;
+
+@Service("zoneService")
+public class ZoneService {
+
+	
+	public ZoneService() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

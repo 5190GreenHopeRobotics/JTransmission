@@ -1,0 +1,9 @@
+package frc5190;
+
+public class TransmissionPacket {
+
+	public TransmissionPacket() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

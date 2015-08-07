@@ -1,0 +1,76 @@
+package net.viperfish.requestServer;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.util.LinkedList;
+
+
+public class ConnectionThread implements Runnable {
+	private Socket mSocket;
+	private int id;
+	private DataInputStream src;
+	private DataOutputStream target;
+	public ConnectionThread(Socket sock, int id) throws IOException {
+		mSocket = sock;
+		try {
+			src = new DataInputStream(sock.getInputStream());
+			target = new DataOutputStream(sock.getOutputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw e;
+		}
+		this.id = id;
+	}
+
+	@Override
+	public void run() {
+		String request = new String();
+		String[] requestPart = null;
+		byte[] temp = new byte[2024];
+		Request incoming;
+		while(!Thread.interrupted())
+		{
+			if(mSocket.isClosed() || mSocket.isInputShutdown()) {
+				return;
+			}
+			incoming = new Request();
+			try {
+				src.read(temp);
+				request = new String(temp);
+				System.out.println(request);
+			} catch (IOException e) {
+				continue;
+			}
+			requestPart = request.split(";");
+			if(requestPart.length != 3)
+			{
+				System.out.println("Invalid Length");
+				continue;
+			}
+			else {
+				incoming.setType(requestPart[0]);
+				incoming.setSrc(requestPart[1]);
+				incoming.setDescritpion(requestPart[2]);
+				incoming.setSrcConn(id);
+				ConnectionHandler.addRequest(incoming);
+			}
+		}
+
+	}
+	
+	public void dispose() {
+		try {
+			mSocket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void send(Response r) throws IOException {
+		target.write(r.toString().getBytes());
+	}
+}

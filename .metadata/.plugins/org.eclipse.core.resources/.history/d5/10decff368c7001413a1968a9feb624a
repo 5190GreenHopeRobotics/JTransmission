@@ -1,0 +1,9 @@
+package net.viperfish.chat;
+
+public class ZoneController {
+
+	public ZoneController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

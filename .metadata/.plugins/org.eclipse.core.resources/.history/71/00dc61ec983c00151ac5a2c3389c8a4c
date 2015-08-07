@@ -1,0 +1,13 @@
+\section{Class Hierarchy}
+This inheritance list is sorted roughly, but not completely, alphabetically\-:\begin{DoxyCompactList}
+\item \contentsline{section}{interpreter}{\pageref{classinterpreter}}{}
+\item \contentsline{section}{packet\-Buffer}{\pageref{classpacketBuffer}}{}
+\item \contentsline{section}{sensor\-Info}{\pageref{structsensorInfo}}{}
+\item \contentsline{section}{transmission\-Data}{\pageref{classtransmissionData}}{}
+\begin{DoxyCompactList}
+\item \contentsline{section}{command\-Data}{\pageref{classcommandData}}{}
+\item \contentsline{section}{keep\-State\-Data}{\pageref{classkeepStateData}}{}
+\item \contentsline{section}{sensor\-Data}{\pageref{classsensorData}}{}
+\end{DoxyCompactList}
+\item \contentsline{section}{transmission\-Packet}{\pageref{classtransmissionPacket}}{}
+\end{DoxyCompactList}

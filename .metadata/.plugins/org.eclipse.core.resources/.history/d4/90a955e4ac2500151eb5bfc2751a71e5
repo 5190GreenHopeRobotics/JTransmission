@@ -1,0 +1,339 @@
+package net.viperfish.propertyManager.lease;
+
+import java.util.Date;
+
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table
+public class Lease {
+	protected Long id;
+	@NotNull
+	protected Long propertyID;
+	@NotNull
+	protected Long tenantID;
+	protected String propertyName;
+	protected String tenantName;
+	protected Date startDate;
+	protected Date endDate;
+	protected Double securityDeposit;
+	protected Double monthlyPayment;
+	protected Double leaseFeePercent;
+	protected Boolean newLease;
+
+	public Lease() {
+		startDate = new Date();
+		endDate = new Date();
+		securityDeposit = new Double(0);
+		monthlyPayment = new Double(0);
+		leaseFeePercent = new Double(0);
+		newLease = new Boolean(true);
+	}
+
+	public Lease(Long propertyID, Long tenantID, String propertyName,
+			String tenantName, Date startDate, Date endDate,
+			Double securityDeposit, Double monthlyPayment,
+			Double leaseFeePercent, Boolean newLease) {
+		this.propertyID = propertyID;
+		this.tenantID = tenantID;
+		this.propertyName = propertyName;
+		this.tenantName = tenantName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.securityDeposit = securityDeposit;
+		this.monthlyPayment = monthlyPayment;
+		this.leaseFeePercent = leaseFeePercent;
+		this.newLease = newLease;
+	}
+
+	/**
+	 * @return the id
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the propertyID
+	 */
+	@Basic
+	public Long getPropertyID() {
+		return propertyID;
+	}
+
+	/**
+	 * @param propertyID
+	 *            the propertyID to set
+	 */
+	public void setPropertyID(Long propertyID) {
+		this.propertyID = propertyID;
+	}
+
+	/**
+	 * @return the tenantID
+	 */
+	@Basic
+	public Long getTenantID() {
+		return tenantID;
+	}
+
+	/**
+	 * @param tenantID
+	 *            the tenantID to set
+	 */
+	public void setTenantID(Long tenantID) {
+		this.tenantID = tenantID;
+	}
+
+	/**
+	 * @return the propertyName
+	 */
+	@Transient
+	public String getPropertyName() {
+		return propertyName;
+	}
+
+	/**
+	 * @param propertyName
+	 *            the propertyName to set
+	 */
+	public void setPropertyName(String propertyName) {
+		this.propertyName = propertyName;
+	}
+
+	/**
+	 * @return the tenantName
+	 */
+	@Transient
+	public String getTenantName() {
+		return tenantName;
+	}
+
+	/**
+	 * @param tenantName
+	 *            the tenantName to set
+	 */
+	public void setTenantName(String tenantName) {
+		this.tenantName = tenantName;
+	}
+
+	/**
+	 * @return the startDate
+	 */
+	@Temporal(TemporalType.DATE)
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	/**
+	 * @param startDate
+	 *            the startDate to set
+	 */
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	/**
+	 * @return the endDate
+	 */
+	@Temporal(TemporalType.DATE)
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	/**
+	 * @param endDate
+	 *            the endDate to set
+	 */
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	/**
+	 * @return the securityDeposit
+	 */
+	@Basic
+	public Double getSecurityDeposit() {
+		return securityDeposit;
+	}
+
+	/**
+	 * @param securityDeposit
+	 *            the securityDeposit to set
+	 */
+	public void setSecurityDeposit(Double securityDeposit) {
+		this.securityDeposit = securityDeposit;
+	}
+
+	/**
+	 * @return the monthlyPayment
+	 */
+	@Basic
+	public Double getMonthlyPayment() {
+		return monthlyPayment;
+	}
+
+	/**
+	 * @param monthlyPayment
+	 *            the monthlyPayment to set
+	 */
+	public void setMonthlyPayment(Double monthlyPayment) {
+		this.monthlyPayment = monthlyPayment;
+	}
+
+	/**
+	 * @return the leaseFeePercent
+	 */
+	@Basic
+	public Double getLeaseFeePercent() {
+		return leaseFeePercent;
+	}
+
+	/**
+	 * @param leaseFeePercent
+	 *            the leaseFeePercent to set
+	 */
+	public void setLeaseFeePercent(Double leaseFeePercent) {
+		this.leaseFeePercent = leaseFeePercent;
+	}
+
+	/**
+	 * @return the newLease
+	 */
+	@Basic
+	public Boolean getNewLease() {
+		return newLease;
+	}
+
+	/**
+	 * @param newLease
+	 *            the newLease to set
+	 */
+	public void setNewLease(Boolean newLease) {
+		this.newLease = newLease;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((endDate == null) ? 0 : endDate.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((leaseFeePercent == null) ? 0 : leaseFeePercent.hashCode());
+		result = prime * result
+				+ ((monthlyPayment == null) ? 0 : monthlyPayment.hashCode());
+		result = prime * result
+				+ ((newLease == null) ? 0 : newLease.hashCode());
+		result = prime * result
+				+ ((propertyID == null) ? 0 : propertyID.hashCode());
+		result = prime * result
+				+ ((propertyName == null) ? 0 : propertyName.hashCode());
+		result = prime * result
+				+ ((securityDeposit == null) ? 0 : securityDeposit.hashCode());
+		result = prime * result
+				+ ((startDate == null) ? 0 : startDate.hashCode());
+		result = prime * result
+				+ ((tenantID == null) ? 0 : tenantID.hashCode());
+		result = prime * result
+				+ ((tenantName == null) ? 0 : tenantName.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Lease other = (Lease) obj;
+		if (endDate == null) {
+			if (other.endDate != null)
+				return false;
+		} else if (!endDate.equals(other.endDate))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (leaseFeePercent == null) {
+			if (other.leaseFeePercent != null)
+				return false;
+		} else if (!leaseFeePercent.equals(other.leaseFeePercent))
+			return false;
+		if (monthlyPayment == null) {
+			if (other.monthlyPayment != null)
+				return false;
+		} else if (!monthlyPayment.equals(other.monthlyPayment))
+			return false;
+		if (newLease == null) {
+			if (other.newLease != null)
+				return false;
+		} else if (!newLease.equals(other.newLease))
+			return false;
+		if (propertyID == null) {
+			if (other.propertyID != null)
+				return false;
+		} else if (!propertyID.equals(other.propertyID))
+			return false;
+		if (propertyName == null) {
+			if (other.propertyName != null)
+				return false;
+		} else if (!propertyName.equals(other.propertyName))
+			return false;
+		if (securityDeposit == null) {
+			if (other.securityDeposit != null)
+				return false;
+		} else if (!securityDeposit.equals(other.securityDeposit))
+			return false;
+		if (startDate == null) {
+			if (other.startDate != null)
+				return false;
+		} else if (!startDate.equals(other.startDate))
+			return false;
+		if (tenantID == null) {
+			if (other.tenantID != null)
+				return false;
+		} else if (!tenantID.equals(other.tenantID))
+			return false;
+		if (tenantName == null) {
+			if (other.tenantName != null)
+				return false;
+		} else if (!tenantName.equals(other.tenantName))
+			return false;
+		return true;
+	}
+
+}

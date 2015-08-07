@@ -1,0 +1,10 @@
+package net.viperfish.chat;
+
+@Service("zoneService")
+public class ZoneService {
+
+	public ZoneService() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

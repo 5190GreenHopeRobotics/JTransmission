@@ -1,0 +1,55 @@
+package net.viperfish.propertyManager.property;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PropertyDaoImpl implements PropertyDAO {
+
+	@PersistenceContext
+	EntityManager entityManager;
+
+	public PropertyDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Property get(Long key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Property put(Property data) {
+		entityManager.persist(data);
+		return data;
+	}
+
+	@Override
+	public Property update(Property data) {
+		entityManager.merge(data);
+		return data;
+	}
+
+	@Override
+	public Property remove(Long key) {
+		entityManager.createQuery("DELETE FROM Property p WHERE p.id = :id")
+				.setParameter("id", key).executeUpdate();
+	}
+
+	@Override
+	public Property keywordSearch(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Property> getAll() {
+		// TODO Auto-generated method stub
+		return this.entityManager.createQuery(
+				"SELECT p FROM Property p ORDER BY p.name", Property.class)
+				.getResultList();
+	}
+}

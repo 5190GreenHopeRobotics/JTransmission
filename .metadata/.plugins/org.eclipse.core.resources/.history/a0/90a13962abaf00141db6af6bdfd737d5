@@ -1,0 +1,34 @@
+package org.usfirst.frc.team5190.sensorFilter;
+
+public class ITG3200 {
+	
+	public static final int ITG_ADDR = 0xD0;
+	public static final int WHO_AM_I = 0x00;
+	public static final int SMPLRT_DIV = 0x15;
+	public static final int DLPF_FS = 0x16;
+	public static final int INT_CFG = 0x17;
+	public static final int INT_STATUS = 0x1A;
+	public ITG3200(int port) {
+		
+	}
+	
+	public byte read(byte addr) {
+		
+	}
+	
+	public void write(byte addr, byte value) {
+		
+	}
+	
+	public double getDegree() {
+		
+	}
+	
+	protected void begin() {
+		
+	}
+	
+	protected void update() {
+		
+	}
+}

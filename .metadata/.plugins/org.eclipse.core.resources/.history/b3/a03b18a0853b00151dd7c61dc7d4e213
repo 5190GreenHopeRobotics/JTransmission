@@ -1,0 +1,22 @@
+/*
+ * test.cpp
+ *
+ *  Created on: Aug 1, 2015
+ *      Author: sdai
+ */
+#include "transmission.h"
+#include <iostream>
+int main() {
+	frc5190::vector<unsigned char> v;
+	for(int i=0;i<20;++i) {
+		unsigned char j = (short)i;
+		v.append(j);
+	}
+	for(int k=0;k<v.getSize();++k) {
+		v.remove(0);
+		std::cerr << "k:" << k << std::endl;
+	}
+	std::cerr << "size:" << v.getSize() << std::endl;
+}
+
+

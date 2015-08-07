@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['sensordata',['sensorData',['../classsensorData.html',1,'sensorData'],['../classsensorData.html#a43ea2bc62a61d8a87efa5084222b6f94',1,'sensorData::sensorData()'],['../classsensorData.html#a3d1b2c44507a489da2f7937683ea49be',1,'sensorData::sensorData(const sensorData &amp;data)']]],
+  ['sensorinfo',['sensorInfo',['../structsensorInfo.html',1,'']]],
+  ['setarduinostat',['setArduinoStat',['../classsensorData.html#af95f327facc5ffdb04ec2a6f7488a4a8',1,'sensorData']]],
+  ['setcommand',['setCommand',['../classcommandData.html#ad005bd06513576028c35abcce0b8b259',1,'commandData']]],
+  ['setdata',['setData',['../classtransmissionPacket.html#addb25c2a8297115224d3b229e558c7a4',1,'transmissionPacket::setData(transmissionData &amp;data)'],['../classtransmissionPacket.html#a61782a9ac9a54deaff19d18d35887a9a',1,'transmissionPacket::setData(const unsigned char *data)']]],
+  ['setmessagelength',['setMessageLength',['../classtransmissionPacket.html#aa4dd4a99956e6a3078d19bdca005e4b3',1,'transmissionPacket']]],
+  ['setmessagetype',['setMessageType',['../classtransmissionPacket.html#aaf57e80cee2a9a6632f21bec6e791617',1,'transmissionPacket']]],
+  ['setparameter',['setParameter',['../classcommandData.html#ae85e0bef520a7111cf744e9524b493bd',1,'commandData']]],
+  ['setsequence',['setSequence',['../classkeepStateData.html#acff5898677f0bc2c6dd3b2e52fc1af28',1,'keepStateData']]],
+  ['setstate',['setState',['../classkeepStateData.html#a67fab4cc21ddb47be8410d29d84f9c36',1,'keepStateData']]]
+];

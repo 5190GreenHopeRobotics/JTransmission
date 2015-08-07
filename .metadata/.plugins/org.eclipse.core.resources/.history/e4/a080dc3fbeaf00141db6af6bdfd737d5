@@ -1,0 +1,11 @@
+package net.viperfish.requestServer;
+
+import java.util.LinkedList;
+
+public class RequestServer {
+	private LinkedList<Request> ticket;
+	
+	private void handle() {
+		
+	}
+}

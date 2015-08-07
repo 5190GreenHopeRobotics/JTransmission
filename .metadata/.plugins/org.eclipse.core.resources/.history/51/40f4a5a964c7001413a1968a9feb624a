@@ -1,0 +1,55 @@
+package net.viperfish.chat;
+
+import net.viperfish.DAO.ZoneDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("zoneService")
+public class ZoneService {
+	@Autowired
+	protected ZoneDAO zoneDao;
+
+	public ZoneService() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void putMessage(Message m) {
+		Zone z = getSingleZone(m.getZone());
+		if (z != null) {
+			z.putMessage(m);
+		}
+	}
+
+	public Message[] getMessage(String zoneName) {
+		Zone z = getSingleZone(zoneName);
+		if (z != null) {
+			return z.getMessage();
+		}
+		return null;
+	}
+
+	public void joinZone(String zoneName, String user) {
+		Zone z = getSingleZone(zoneName);
+		if (z != null) {
+			z.addUser(user);
+			zoneDao.update(z, z);
+		}
+	}
+
+	public void leaveZone(String zoneName, String user) {
+		Zone z = getSingleZone(zoneName);
+		if(z != null) {
+			z.rmUser(user);
+			zoneDao.update(z, z);
+		}
+	}
+	
+	protected Zone getSingleZone(String zoneName) {
+		Zone[] z = zoneDao.get(zoneName);
+		if (z.length != 1) {
+			return null;
+		}
+		return z[0];
+	}
+}

@@ -1,0 +1,42 @@
+package net.viperfish.propertyManager.service;
+
+import net.viperfish.propertyManager.insurance.Insurance;
+import net.viperfish.propertyManager.insurance.InsuranceIndexer;
+
+public class InsuranceService {
+
+	protected InsuranceIndexer indexer;
+	@Autowired
+	protected InsuranceDAO insuranceDao;
+	protected void fillInName(Insurance i) {
+
+	}
+
+	public InsuranceService() {
+		indexer = new InsuranceIndexer();
+	}
+
+	public Insurance put(Insurance toAdd) {
+
+	}
+
+	public Insurance update(Long id, Insurance update) {
+
+	}
+
+	public Insurance delete(Long id) {
+
+	}
+
+	public Insurance get(Long id) {
+
+	}
+
+	public Iterable<Insurance> getAll() {
+
+	}
+
+	public Iterable<Insurance> search(String keywords) {
+
+	}
+}

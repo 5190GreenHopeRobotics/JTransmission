@@ -1,0 +1,27 @@
+package net.viperfish.propertyManager.controller;
+
+import net.viperfish.propertyManager.service.TenantService;
+import net.viperfish.propertyManager.tenant.Tenant;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping("tenant")
+public class TenantController {
+
+	@Autowired
+	protected TenantService tenantService;
+
+	public TenantController() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@RequestMapping(value = "{tenantID}", method = RequestMethod.GET)
+	public Tenant getTenant() {
+
+	}
+
+}

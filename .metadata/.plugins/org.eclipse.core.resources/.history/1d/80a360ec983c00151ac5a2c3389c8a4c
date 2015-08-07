@@ -1,0 +1,215 @@
+\hypertarget{classsensorData}{\section{sensor\-Data Class Reference}
+\label{classsensorData}\index{sensor\-Data@{sensor\-Data}}
+}
+
+
+the sensor data datagram the sensor data datagram which the arduino sends to roborio constantly  
+
+
+
+
+{\ttfamily \#include $<$transmission.\-h$>$}
+
+Inheritance diagram for sensor\-Data\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsensorData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsensorData_a43ea2bc62a61d8a87efa5084222b6f94}{\hyperlink{classsensorData_a43ea2bc62a61d8a87efa5084222b6f94}{sensor\-Data} ()}\label{classsensorData_a43ea2bc62a61d8a87efa5084222b6f94}
+
+\begin{DoxyCompactList}\small\item\em default ctor \end{DoxyCompactList}\item 
+\hyperlink{classsensorData_a3d1b2c44507a489da2f7937683ea49be}{sensor\-Data} (const \hyperlink{classsensorData}{sensor\-Data} \&data)
+\begin{DoxyCompactList}\small\item\em copy ctor \end{DoxyCompactList}\item 
+\hyperlink{classsensorData}{sensor\-Data} \& \hyperlink{classsensorData_a6b5e8d1467b390fd41a707667ec28bf2}{operator=} (const \hyperlink{classsensorData}{sensor\-Data} \&src)
+\begin{DoxyCompactList}\small\item\em assignment operator \end{DoxyCompactList}\item 
+bool \hyperlink{classsensorData_aacea3e817ae9b69b635271562fa483da}{operator==} (const \hyperlink{classsensorData}{sensor\-Data} \&src)
+\begin{DoxyCompactList}\small\item\em comparison operator \end{DoxyCompactList}\item 
+void \hyperlink{classsensorData_af95f327facc5ffdb04ec2a6f7488a4a8}{set\-Arduino\-Stat} (const unsigned char stat)
+\begin{DoxyCompactList}\small\item\em sets the status of arduino in the datagram, 0 for error, 1 for good \end{DoxyCompactList}\item 
+unsigned char \hyperlink{classsensorData_aebe763d26ab02c01e5b7eb3f9a35c8eb}{get\-Arduino\-Stat} () const 
+\begin{DoxyCompactList}\small\item\em gets the status of arduino \end{DoxyCompactList}\item 
+unsigned char \hyperlink{classsensorData_aab2d3c517b2130b076f1bff605b074a4}{get\-Sensor\-Num} () const 
+\begin{DoxyCompactList}\small\item\em gets the number of sensor added \end{DoxyCompactList}\item 
+\hypertarget{classsensorData_a6cdb280bf5743c694249d69ee831f3d4}{void \hyperlink{classsensorData_a6cdb280bf5743c694249d69ee831f3d4}{add\-Sensor} (const \hyperlink{structsensorInfo}{sensor\-Info} \&data)}\label{classsensorData_a6cdb280bf5743c694249d69ee831f3d4}
+
+\begin{DoxyCompactList}\small\item\em adds a sensor data to the datagram  the new sensor data \end{DoxyCompactList}\item 
+const \hyperlink{structsensorInfo}{sensor\-Info} $\ast$ \hyperlink{classsensorData_a9ccb58cc800a598c3d10e09550d3e1df}{get\-Sensors} () const 
+\begin{DoxyCompactList}\small\item\em gets all the sensor data added \end{DoxyCompactList}\item 
+\hypertarget{classsensorData_af0b04d0861972b8fe829850374f20f00}{const unsigned char $\ast$ \hyperlink{classsensorData_af0b04d0861972b8fe829850374f20f00}{to\-Packet} ()}\label{classsensorData_af0b04d0861972b8fe829850374f20f00}
+
+\begin{DoxyCompactList}\small\item\em see super class \end{DoxyCompactList}\item 
+\hypertarget{classsensorData_af7cfb2850123ed74e8ec38e3c7a36c80}{unsigned char \hyperlink{classsensorData_af7cfb2850123ed74e8ec38e3c7a36c80}{get\-Length} () const }\label{classsensorData_af7cfb2850123ed74e8ec38e3c7a36c80}
+
+\begin{DoxyCompactList}\small\item\em see super class \end{DoxyCompactList}\item 
+\hypertarget{classsensorData_aa41c2fb97e25f2e8476cbee6b728abca}{\hyperlink{classsensorData_aa41c2fb97e25f2e8476cbee6b728abca}{$\sim$sensor\-Data} ()}\label{classsensorData_aa41c2fb97e25f2e8476cbee6b728abca}
+
+\begin{DoxyCompactList}\small\item\em free the memory \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsensorData_a7880c512e20b40d9bfab23a25b64644e}{bool {\bfseries cmp\-Sensor\-Data} (const \hyperlink{structsensorInfo}{sensor\-Info} $\ast$src, const \hyperlink{structsensorInfo}{sensor\-Info} $\ast$data)}\label{classsensorData_a7880c512e20b40d9bfab23a25b64644e}
+
+\item 
+\hypertarget{classsensorData_ac4b48878700045f392cff11cad3f7bfb}{void {\bfseries cp\-Sensor\-Data} (\hyperlink{structsensorInfo}{sensor\-Info} $\ast$src, const \hyperlink{structsensorInfo}{sensor\-Info} $\ast$data)}\label{classsensorData_ac4b48878700045f392cff11cad3f7bfb}
+
+\item 
+\hypertarget{classsensorData_a47f67468095d2ef01d2722086f292419}{void {\bfseries relocate} ()}\label{classsensorData_a47f67468095d2ef01d2722086f292419}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsensorData_aef4bf6c4097df28e2d2b26ffac1d0ecf}{const int {\bfseries block}}\label{classsensorData_aef4bf6c4097df28e2d2b26ffac1d0ecf}
+
+\item 
+\hypertarget{classsensorData_aefe6c1293564f8f4f8099db8d1ec2ee4}{int {\bfseries capacity}}\label{classsensorData_aefe6c1293564f8f4f8099db8d1ec2ee4}
+
+\item 
+\hypertarget{classsensorData_a1b46077915f9fc029633d74cad20fa6f}{int {\bfseries current}}\label{classsensorData_a1b46077915f9fc029633d74cad20fa6f}
+
+\item 
+\hypertarget{classsensorData_a41653eec6e313a2371079315b49d4c5f}{unsigned char {\bfseries arduino\-Stat}}\label{classsensorData_a41653eec6e313a2371079315b49d4c5f}
+
+\item 
+\hypertarget{classsensorData_a116931e9e1a187e9bcc8ed75d103284d}{unsigned char {\bfseries sensor\-Num}}\label{classsensorData_a116931e9e1a187e9bcc8ed75d103284d}
+
+\item 
+\hypertarget{classsensorData_a3510b3a7b528ff7e72b1bbc62198de41}{\hyperlink{structsensorInfo}{sensor\-Info} $\ast$ {\bfseries sensors}}\label{classsensorData_a3510b3a7b528ff7e72b1bbc62198de41}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+the sensor data datagram the sensor data datagram which the arduino sends to roborio constantly 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classtransmissionData}{transmission\-Data} 
+\end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsensorData_a3d1b2c44507a489da2f7937683ea49be}{\index{sensor\-Data@{sensor\-Data}!sensor\-Data@{sensor\-Data}}
+\index{sensor\-Data@{sensor\-Data}!sensorData@{sensor\-Data}}
+\subsubsection[{sensor\-Data}]{\setlength{\rightskip}{0pt plus 5cm}sensor\-Data\-::sensor\-Data (
+\begin{DoxyParamCaption}
+\item[{const {\bf sensor\-Data} \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classsensorData_a3d1b2c44507a489da2f7937683ea49be}
+
+
+copy ctor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & object to copy from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsensorData_aebe763d26ab02c01e5b7eb3f9a35c8eb}{\index{sensor\-Data@{sensor\-Data}!get\-Arduino\-Stat@{get\-Arduino\-Stat}}
+\index{get\-Arduino\-Stat@{get\-Arduino\-Stat}!sensorData@{sensor\-Data}}
+\subsubsection[{get\-Arduino\-Stat}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char sensor\-Data\-::get\-Arduino\-Stat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsensorData_aebe763d26ab02c01e5b7eb3f9a35c8eb}
+
+
+gets the status of arduino 
+
+\begin{DoxyReturn}{Returns}
+the status of arduino 
+\end{DoxyReturn}
+\hypertarget{classsensorData_aab2d3c517b2130b076f1bff605b074a4}{\index{sensor\-Data@{sensor\-Data}!get\-Sensor\-Num@{get\-Sensor\-Num}}
+\index{get\-Sensor\-Num@{get\-Sensor\-Num}!sensorData@{sensor\-Data}}
+\subsubsection[{get\-Sensor\-Num}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char sensor\-Data\-::get\-Sensor\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsensorData_aab2d3c517b2130b076f1bff605b074a4}
+
+
+gets the number of sensor added 
+
+\begin{DoxyReturn}{Returns}
+the number of sensor 
+\end{DoxyReturn}
+\hypertarget{classsensorData_a9ccb58cc800a598c3d10e09550d3e1df}{\index{sensor\-Data@{sensor\-Data}!get\-Sensors@{get\-Sensors}}
+\index{get\-Sensors@{get\-Sensors}!sensorData@{sensor\-Data}}
+\subsubsection[{get\-Sensors}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf sensor\-Info} $\ast$ sensor\-Data\-::get\-Sensors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsensorData_a9ccb58cc800a598c3d10e09550d3e1df}
+
+
+gets all the sensor data added 
+
+\begin{DoxyReturn}{Returns}
+sensor data 
+\end{DoxyReturn}
+\hypertarget{classsensorData_a6b5e8d1467b390fd41a707667ec28bf2}{\index{sensor\-Data@{sensor\-Data}!operator=@{operator=}}
+\index{operator=@{operator=}!sensorData@{sensor\-Data}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sensor\-Data} \& sensor\-Data\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf sensor\-Data} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classsensorData_a6b5e8d1467b390fd41a707667ec28bf2}
+
+
+assignment operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & object to assign from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this 
+\end{DoxyReturn}
+\hypertarget{classsensorData_aacea3e817ae9b69b635271562fa483da}{\index{sensor\-Data@{sensor\-Data}!operator==@{operator==}}
+\index{operator==@{operator==}!sensorData@{sensor\-Data}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool sensor\-Data\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf sensor\-Data} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classsensorData_aacea3e817ae9b69b635271562fa483da}
+
+
+comparison operator 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & the object to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+result 
+\end{DoxyReturn}
+\hypertarget{classsensorData_af95f327facc5ffdb04ec2a6f7488a4a8}{\index{sensor\-Data@{sensor\-Data}!set\-Arduino\-Stat@{set\-Arduino\-Stat}}
+\index{set\-Arduino\-Stat@{set\-Arduino\-Stat}!sensorData@{sensor\-Data}}
+\subsubsection[{set\-Arduino\-Stat}]{\setlength{\rightskip}{0pt plus 5cm}void sensor\-Data\-::set\-Arduino\-Stat (
+\begin{DoxyParamCaption}
+\item[{const unsigned char}]{stat}
+\end{DoxyParamCaption}
+)}}\label{classsensorData_af95f327facc5ffdb04ec2a6f7488a4a8}
+
+
+sets the status of arduino in the datagram, 0 for error, 1 for good 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stat} & the status \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+transmission.\-h\item 
+transmission.\-cpp\end{DoxyCompactItemize}

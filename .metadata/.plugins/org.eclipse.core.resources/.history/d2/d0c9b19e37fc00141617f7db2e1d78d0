@@ -1,0 +1,162 @@
+package net.viperfish.propertyManager.property;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import net.viperfish.propertyManager.morgage.Mortgage;
+import net.viperfish.utils.JsonGenerator;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+@Entity
+@Table
+public class Property implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6716452678025962100L;
+	protected long id;
+	@NotEmpty
+	protected String name;
+	protected String location;
+	protected Date purchaseDate;
+	protected double purchasePrice;
+
+	public Property() {
+		name = new String();
+		location = new String();
+		purchaseDate = new Date();
+	}
+
+	public Property(String name, int id, String location, Date purchaseDate,
+			double purchasePrice, Mortgage morgage) {
+		this.name = name;
+		this.id = id;
+		this.location = location;
+		this.purchaseDate = purchaseDate;
+		this.purchasePrice = purchasePrice;
+	}
+
+	@Basic
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	@Basic
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getPurchaseDate() {
+		return purchaseDate;
+	}
+
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+
+	@Basic
+	public double getPurchasePrice() {
+		return purchasePrice;
+	}
+
+	public void setPurchasePrice(double purchasePrice) {
+		this.purchasePrice = purchasePrice;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result
+				+ ((location == null) ? 0 : location.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result
+				+ ((purchaseDate == null) ? 0 : purchaseDate.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(purchasePrice);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Property other = (Property) obj;
+		if (id != other.id)
+			return false;
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (purchaseDate == null) {
+			if (other.purchaseDate != null)
+				return false;
+		} else if (!purchaseDate.equals(other.purchaseDate))
+			return false;
+		if (Double.doubleToLongBits(purchasePrice) != Double
+				.doubleToLongBits(other.purchasePrice))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		JsonGenerator gen = new JsonGenerator();
+		try {
+			return gen.toJson(this);
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+			return super.toString();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return super.toString();
+		}
+	}
+
+}

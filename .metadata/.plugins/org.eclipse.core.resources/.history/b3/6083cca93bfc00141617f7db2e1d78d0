@@ -1,0 +1,28 @@
+package net.viperfish.propertyManager.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+
+@Configuration
+@ComponentScan(basePackages = "net.viperfish.propertyManager", useDefaultFilters = false, includeFilters = @ComponentScan.Filter(Controller.class))
+public class ServletContextConfiguration {
+
+	public ServletContextConfiguration() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Bean
+	ViewResolver viewResolver() {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setViewClass(JstlView.class);
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+		return resolver;
+	}
+
+}

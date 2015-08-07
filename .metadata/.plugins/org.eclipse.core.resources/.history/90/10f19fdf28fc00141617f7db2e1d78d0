@@ -1,0 +1,9 @@
+package net.viperfish.propertyManager.property;
+
+public class PropertyDaoImpl implements PropertyDAO {
+
+	public PropertyDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

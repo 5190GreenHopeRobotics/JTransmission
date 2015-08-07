@@ -1,0 +1,55 @@
+package net.viperfish.ticketServer;
+
+import java.io.IOException;
+import java.net.Socket;
+
+public class Client implements Runnable {
+	protected static int currentID;
+	protected Socket sock;
+	protected int id;
+	public Client(Socket sock) {
+		this.sock = sock;
+		id = currentID;
+		currentID= currentID+1;
+	}
+	
+	public boolean reportError(Error e) {
+		try {
+			sock.getOutputStream().write(("Error:" + e.toString()).getBytes());
+		} catch (IOException e1) {
+			return false;
+		}
+		return true;
+		
+	}
+	
+	public boolean sendTicket(Ticket t) {
+		try {
+			sock.getOutputStream().write(("Ticket:" + t.toString()).getBytes());
+		} catch (IOException e) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean pushCurrent(int num) {
+		try {
+			sock.getOutputStream().write(("Current:" + num).getBytes());
+		} catch (IOException e) {
+			return false;
+		}
+		return true;
+	}
+
+	public int getID() {
+		return id;
+	}
+	
+	@Override
+	public void run() {
+		while(!Thread.interrupted()) {
+			
+		}
+		
+	}
+}

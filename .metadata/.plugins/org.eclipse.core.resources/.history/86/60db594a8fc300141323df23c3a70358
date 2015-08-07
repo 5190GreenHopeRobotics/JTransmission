@@ -1,0 +1,63 @@
+package net.viperfish.DAO;
+
+import javax.sql.DataSource;
+
+import net.viperfish.chat.Message;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository("messageDao")
+public class MessageDAO implements DataAcesser<Message, Message> {
+
+	protected JdbcTemplate template;
+
+	@Autowired
+	public void createTemplate(DataSource dataSource) {
+		template = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public void add(Message toAdd) {
+		String query = "INSERT INTO messageTable VALUES("
+				+ toAdd.getDate().getTime() + ",\"" + toAdd.getSrc() + "\",\""
+				+ toAdd.getZone() + "\", \"" + toAdd.getContent() + "\")";
+		template.execute(query);
+
+	}
+
+	@Override
+	public void delete(Message o) {
+		String query = "DELETE FROM messageTable WHERE timeStamp = "
+				+ o.getDate().getTime() + " AND src = \"" + o.getSrc() + "\""
+				+ " AND zone = \"" + o.getZone() + "\"" + " AND content = \""
+				+ o.getContent() + "\"";
+		template.execute(query);
+	}
+
+	@Override
+	public Message[] get(Message key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Message old, Message newObject) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Message[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

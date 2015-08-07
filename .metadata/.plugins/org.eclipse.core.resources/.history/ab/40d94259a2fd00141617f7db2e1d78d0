@@ -1,0 +1,53 @@
+package net.viperfish.propertyManager.morgage;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.transaction.annotation.Transactional;
+
+public class MortgageDAOImpl implements MortgageDAO {
+
+	@PersistenceContext
+	protected EntityManager entityManager;
+
+	public MortgageDAOImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Transactional
+	@Override
+	public Mortgage get(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	@Override
+	public Mortgage put(Mortgage data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	@Override
+	public Mortgage update(Mortgage data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	@Override
+	public Mortgage remove(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	@Override
+	public Iterable<Mortgage> getAll() {
+		entityManager.createQuery(
+				"SELECT m FROM Mortgage m ORDER BY m.propertyName",
+				Mortgage.class).getResultList();
+		return null;
+	}
+}

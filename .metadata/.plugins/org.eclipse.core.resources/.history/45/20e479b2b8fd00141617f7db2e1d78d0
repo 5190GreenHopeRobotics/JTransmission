@@ -1,0 +1,44 @@
+package net.viperfish.propertyManager.service;
+
+import net.viperfish.propertyManager.morgage.Mortgage;
+import net.viperfish.propertyManager.morgage.MortgageDAO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("mortgageService")
+public class MortgageService {
+
+	@Autowired
+	protected MortgageDAO mortgageDao;
+
+	public MortgageService() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Mortgage getMorgage(String propertyName) {
+		return mortgageDao.get(propertyName);
+	}
+
+	public Mortgage deleteMorgage(String propertyName) {
+		return mortgageDao.remove(propertyName);
+	}
+
+	public Mortgage updateMorgage(String mortgageProperty, Mortgage toUpdate) {
+		Mortgage updated = null;
+		if (toUpdate.getPropertyName().equals(mortgageProperty)) {
+			updated = mortgageDao.update(toUpdate);
+		}
+		return updated;
+	}
+
+	public Mortgage addMorgage(Mortgage toAdd) {
+		if (mortgageDao.get(toAdd) == null) {
+			mortgageDao.add(toAdd);
+			return toAdd;
+		} else {
+			return null;
+		}
+	}
+
+}

@@ -1,0 +1,13 @@
+package net.viperfish.chat;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+@RequestMapping("/zone")
+public class ZoneController {
+
+	public ZoneController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
