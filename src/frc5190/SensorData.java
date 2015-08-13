@@ -109,6 +109,10 @@ public class SensorData implements TransmissionData {
 		this.sensorNum = sensorNum;
 	}
 
+	public void addInfo(SensorInfo info) {
+		buffer.add(info);
+	}
+
 	@Override
 	public List<Byte> toPacket() {
 		List<Byte> result = new LinkedList<Byte>();
